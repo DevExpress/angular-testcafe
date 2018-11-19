@@ -1,0 +1,29 @@
+{
+  "id": "TestcafeBuilderSchema",
+  "title": "TestCafe builder",
+  "description": "TestCafe builder options",
+  "properties": {
+    "devServerTarget": {
+      "type": "string",
+      "description": "Dev server target to run tests against."
+    },
+    "src": {
+      "type": "string",
+      "description": "Dev server target to run tests against."
+    },
+    "browsers": {
+      "type": "array",
+      "description": "browsers",
+      "items": {
+        "type": "string",
+        "description": "name of the browser"
+      },
+      "default": ["chrome"]
+    },
+    "reporter": {
+      "type": "string",
+      "description": "the reporter to use",
+      "default": "spec"
+    }
+  }
+}
