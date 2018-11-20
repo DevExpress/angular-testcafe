@@ -3,10 +3,6 @@
   "title": "TestCafe builder",
   "description": "TestCafe builder options",
   "properties": {
-    "devServerTarget": {
-      "type": "string",
-      "description": "Dev server target to run tests against."
-    },
     "src": {
       "type": "string",
       "description": "Dev server target to run tests against."
@@ -24,6 +20,19 @@
       "type": "string",
       "description": "the reporter to use",
       "default": "spec"
+    },
+    "port": {
+      "type": "number",
+      "description": "The port to use to serve the application."
+    },
+    "host": {
+      "type": "string",
+      "description": "Host to listen on.",
+      "default": "localhost"
+    },
+    "baseUrl": {
+      "type": "string",
+      "description": "Base URL for TestCafe to connect to."
     }
   }
 }
