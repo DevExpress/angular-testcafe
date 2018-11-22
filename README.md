@@ -10,12 +10,11 @@ Serves the Angular application, and then runs the TestCafe tests.
     "my-project-e2e": {
       "architect": {
         "e2e": {
-          "builder": "@angular-builders/build-angular:testcafe",
+          "builder": "angular-testcafe-builder:testcafe",
           "options": {
             "browsers": ["chrome", "firefox"],
             "src": "e2e/*.e2e-spec.ts",
-            "reporter": "json",
-            "host": "localhost:4200",
+            "host": "localhost",
             "port": "4200"
           }
         }
