@@ -1,9 +1,9 @@
 {
   "$schema": "@angular-devkit/architect/src/builders-schema.json",
   "builders": {
-    "file": {
-      "class": "./src/testcafe.builder.js",
-      "schema": "./src/schema.json",
+    "testcafe": {
+      "class": "./src/testcafe/testcafe.builder.js",
+      "schema": "./src/testcafe/schema.json",
       "description": "Builder that runs TestCafe after the Angular application is served"
     }
   }

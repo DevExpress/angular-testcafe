@@ -1,5 +1,5 @@
 {
-  "name": "angular-testcafe",
+  "name": "@angular-builders/testcafe",
   "version": "1.0.0",
   "description": "Angular builder for Testcafe",
   "main": "index.js",
@@ -15,25 +15,27 @@
   "keywords": [
     "angular",
     "testcafe",
-    "builder"
+    "builder",
+    "testing",
+    "runner",
+    "e2e"
   ],
   "author": "Tim Nederhoff",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/timnederhoff/angular-testcafe/issues"
   },
+  "builders": "builders.json",
   "homepage": "https://github.com/timnederhoff/angular-testcafe#readme",
   "devDependencies": {
     "@angular-devkit/architect": "^0.10.6",
-    "@angular-devkit/build-angular": "^0.10.6",
+    "@angular-devkit/build-angular": ">=0.10.6",
     "@angular-devkit/core": "^7.0.6",
     "@types/node": "^10.12.9",
+    "testcafe": ">=0.23.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.6"
   },
-  "peerDependencies": {
-    "@angular-devkit/build-angular": ">=0.10.6",
-    "testcafe": ">=0.23.2"
-  },
+  "peerDependencies": {},
   "dependencies": {}
 }

@@ -5,14 +5,19 @@ import {
   BuilderDescription,
   BuildEvent
 } from '@angular-devkit/architect';
-import { Observable, of } from 'rxjs';
-import { concatMap, take, tap } from 'rxjs/operators';
-import { Path, resolve } from '@angular-devkit/core';
+import { Observable, of, from } from 'rxjs';
+import { concatMap, take, tap, map } from 'rxjs/operators';
 import * as url from 'url';
 import { DevServerBuilderOptions } from '@angular-devkit/build-angular';
-import { TestcafeBuilderSchema } from './schema';
 
-
+export interface TestcafeBuilderSchema {
+  devServerTarget?: string;
+  src: string;
+  browsers: string[];
+  reporter: string;
+  port?: number;
+  host: string;
+}
 
 export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
 
@@ -21,14 +26,10 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
   run(builderConfig: BuilderConfiguration<TestcafeBuilderSchema>): Observable<BuildEvent> {
 
     const options = builderConfig.options;
-    const root = this.context.workspace.root;
-    const projectRoot = resolve(root, builderConfig.root);
-    // const projectSystemRoot = getSystemPath(projectRoot);
 
-    // TODO: verify using of(null) to kickstart things is a pattern.
     return of(null).pipe(
       concatMap(() => options.devServerTarget ? this._startDevServer(options) : of(null)),
-      concatMap(() => this._runTestcafe(root, options)),
+      concatMap(() => this._runTestcafe(options)),
       take(1),
     );
   }
@@ -75,28 +76,27 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
     );
   }
 
-  private _runTestcafe(root: Path, options: TestcafeBuilderSchema): Observable<BuildEvent> {
+  private _runTestcafe(options: TestcafeBuilderSchema): Observable<BuildEvent> {
 
     const createTestCafe = require('testcafe');
-    let runner           = null;
+    let tc: any;
 
-    createTestCafe(options.baseUrl, 1337, 1338)
-      .then((testcafe: any) => {
-        runner = testcafe.createRunner();
-
-        return testcafe.createBrowserConnection();
-      });
-
-    runner
-      .src(options.src)
-      .browsers(options.browsers)
-      .reporter(options.reporter)
-      .run()
-      .then(failedCount => {
-        /* ... */
+    return from(
+      createTestCafe(options.host).then((testcafe: any) => {
+        tc = testcafe;
+        return tc
+          .createRunner()
+          .src(options.src)
+          .browsers(options.browsers)
+          .reporter(options.reporter)
+          .run();
+      }).then((numFailed: number) => {
+        console.log('finished with ', numFailed, ' errors');
+        tc.close();
+      }, (err: Error ) => {
+        console.error('error happened', err);
+        tc.close();
       })
-      .catch(error => {
-        /* ... */
-      });
+    ).pipe(map(() => ({ success: true })));
   }
 }

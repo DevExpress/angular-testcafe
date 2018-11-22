@@ -3,9 +3,13 @@
   "title": "TestCafe builder",
   "description": "TestCafe builder options",
   "properties": {
-    "src": {
+    "devServerTarget": {
       "type": "string",
       "description": "Dev server target to run tests against."
+    },
+    "src": {
+      "type": "string",
+      "description": "Tests to run: file or glob. You can use one or more file paths or glob patterns to specify which tests to run."
     },
     "browsers": {
       "type": "array",
@@ -29,10 +33,6 @@
       "type": "string",
       "description": "Host to listen on.",
       "default": "localhost"
-    },
-    "baseUrl": {
-      "type": "string",
-      "description": "Base URL for TestCafe to connect to."
     }
   }
 }
