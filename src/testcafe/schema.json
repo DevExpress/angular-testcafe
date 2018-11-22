@@ -20,19 +20,123 @@
       },
       "default": ["chrome"]
     },
-    "reporter": {
+    "host": {
       "type": "string",
-      "description": "the reporter to use",
-      "default": "spec"
+      "description": "Host to listen on.",
+      "default": "localhost"
     },
     "port": {
       "type": "number",
       "description": "The port to use to serve the application."
     },
-    "host": {
+    "reporters": {
+      "type": "array",
+      "description": "the reporter to use",
+      "items": {
+        "type": "object",
+        "description": "reporters"
+      },
+      "default": [{ "name": "spec" }]
+    },
+    "concurrency": {
+      "type": "number",
+      "description": ""
+    },
+    "screenshotsPath": {
       "type": "string",
-      "description": "Host to listen on.",
-      "default": "localhost"
+      "description": ""
+    },
+    "screenshotsOnFails": {
+      "type": "boolean",
+      "description": ""
+    },
+    "screenshotsPathPattern": {
+      "type": "string",
+      "description": ""
+    },
+    "quarantineMode": {
+      "type": "boolean",
+      "description": ""
+    },
+    "debugMode": {
+      "type": "boolean",
+      "description": ""
+    },
+    "skipJsErrors": {
+      "type": "boolean",
+      "description": ""
+    },
+    "skipUncaughtErrors": {
+      "type": "boolean",
+      "description": ""
+    },
+    "debugOnFail": {
+      "type": "boolean",
+      "description": ""
+    },
+    "selectorTimeout": {
+      "type": "number",
+      "description": ""
+    },
+    "assertionTimeout": {
+      "type": "number",
+      "description": ""
+    },
+    "pageLoadTimeout": {
+      "type": "number",
+      "description": ""
+    },
+    "speed": {
+      "type": "number",
+      "description": ""
+    },
+    "ports": {
+      "type": "array",
+      "description": "",
+      "items": {
+        "type": "number",
+        "description": ""
+      }
+    },
+    "proxy": {
+      "type": "string",
+      "description": ""
+    },
+    "proxyBypass": {
+      "type": "array",
+      "description": "",
+      "items": {
+        "type": "string",
+        "description": ""
+      }
+    },
+    "disablePageReloads": {
+      "type": "boolean",
+      "description": ""
+    },
+    "dev": {
+      "type": "boolean",
+      "description": ""
+    },
+    "stopOnFirstFail": {
+      "type": "boolean",
+      "description": ""
+    },
+    "disableTestSyntaxValidation": {
+      "type": "boolean",
+      "description": ""
+    },
+    "color": {
+      "type": "boolean",
+      "description": ""
+    },
+    "NoColor": {
+      "type": "boolean",
+      "description": ""
+    },
+    "ssl": {
+      "type": "string",
+      "description": ""
     }
   }
 }

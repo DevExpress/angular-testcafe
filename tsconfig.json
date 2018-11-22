@@ -12,6 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
+    "noImplicitAny": false,
     "pretty": true,
     "sourceMap": true,
     "declaration": true,

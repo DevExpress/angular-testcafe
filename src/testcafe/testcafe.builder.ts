@@ -9,14 +9,43 @@ import { Observable, of, from } from 'rxjs';
 import { concatMap, take, tap, map } from 'rxjs/operators';
 import * as url from 'url';
 import { DevServerBuilderOptions } from '@angular-devkit/build-angular';
+import * as fs from "fs";
 
 export interface TestcafeBuilderSchema {
   devServerTarget?: string;
   src: string;
   browsers: string[];
-  reporter: string;
-  port?: number;
   host: string;
+  port?: number;
+  reporters: Reporter[];
+  concurrency?: number;
+  screenshotsPath?: string;
+  screenshotsOnFails?: boolean;
+  screenshotsPathPattern?: string;
+  quarantineMode?: boolean;
+  debugMode?: boolean;
+  skipJsErrors?: boolean;
+  skipUncaughtErrors?: boolean;
+  debugOnFail?: boolean;
+  selectorTimeout?: number;
+  assertionTimeout?: number;
+  pageLoadTimeout?: number;
+  speed?: number;
+  ports?: number[];
+  proxy?: string;
+  proxyBypass?: string[];
+  disablePageReloads?: boolean;
+  dev?: boolean;
+  stopOnFirstFail?: boolean;
+  disableTestSyntaxValidation?: boolean;
+  color?: boolean;
+  NoColor?: boolean;
+  ssl?: string;
+}
+
+export interface Reporter {
+  name: string,
+  outFile?: string;
 }
 
 export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
@@ -77,26 +106,45 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
   }
 
   private _runTestcafe(options: TestcafeBuilderSchema): Observable<BuildEvent> {
+    return from(this._runTests(options)).pipe(map(() => ({ success: true })));
+  }
+
+  private async _runTests(opts) {
+    const port1             = opts.ports && opts.ports[0];
+    const port2             = opts.ports && opts.ports[1];
+    const externalProxyHost = opts.proxy;
+    const proxyBypass       = opts.proxyBypass;
 
     const createTestCafe = require('testcafe');
-    let tc: any;
+    const testCafe       = await createTestCafe(opts.host, port1, port2, opts.ssl, opts.dev);
+    const concurrency    = opts.concurrency || 1;
+    const browsers       = opts.browsers.concat();
+    const runner         = testCafe.createRunner();
+    let failed           = 0;
+    const reporters      = opts.reporters.map(r => {
+      return {
+        name:      r.name,
+        outStream: r.outFile ? fs.createWriteStream(r.outFile) : void 0
+      };
+    });
 
-    return from(
-      createTestCafe(options.host).then((testcafe: any) => {
-        tc = testcafe;
-        return tc
-          .createRunner()
-          .src(options.src)
-          .browsers(options.browsers)
-          .reporter(options.reporter)
-          .run();
-      }).then((numFailed: number) => {
-        console.log('finished with ', numFailed, ' errors');
-        tc.close();
-      }, (err: Error ) => {
-        console.error('error happened', err);
-        tc.close();
-      })
-    ).pipe(map(() => ({ success: true })));
+    reporters.forEach(r => runner.reporter(r.name, r.outStream));
+
+    runner
+      .useProxy(externalProxyHost, proxyBypass)
+      .src(opts.src)
+      .browsers(browsers)
+      .concurrency(concurrency)
+      .screenshots(opts.screenshotsPath, opts.screenshotsOnFails, opts.screenshotsPathPattern);
+
+    runner.once('done-bootstrapping', () => {});
+
+    try {
+      failed = await runner.run(opts);
+    } finally {
+      await testCafe.close();
+    }
+
+    return setTimeout(() => process.exit(failed), 0);
   }
 }
