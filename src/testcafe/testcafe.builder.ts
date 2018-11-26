@@ -118,7 +118,6 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
     const createTestCafe = require('testcafe');
     const testCafe       = await createTestCafe(opts.host, port1, port2, opts.ssl, opts.dev);
     const concurrency    = opts.concurrency || 1;
-    const browsers       = opts.browsers.concat();
     const runner         = testCafe.createRunner();
     let failed           = 0;
     const reporters      = opts.reporters.map(r => {
@@ -133,7 +132,7 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
     runner
       .useProxy(externalProxyHost, proxyBypass)
       .src(opts.src)
-      .browsers(browsers)
+      .browsers(opts.browsers)
       .concurrency(concurrency)
       .screenshots(opts.screenshotsPath, opts.screenshotsOnFails, opts.screenshotsPathPattern);
 
