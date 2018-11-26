@@ -144,6 +144,6 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
       await testCafe.close();
     }
 
-    return setTimeout(() => process.exit(failed), 0);
+    return setTimeout(() => process.exit(failed ? 1 : 0), 0);
   }
 }
