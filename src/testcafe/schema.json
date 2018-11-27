@@ -5,33 +5,33 @@
   "properties": {
     "devServerTarget": {
       "type": "string",
-      "description": "Dev server target to run tests against."
+      "description": "[Angular] Dev server target to run tests against."
     },
     "src": {
       "type": "string",
-      "description": "Tests to run: file or glob. You can use one or more file paths or glob patterns to specify which tests to run."
+      "description": "[TestCafe] Tests to run: file or glob. You can use one or more file paths or glob patterns to specify which tests to run."
     },
     "browsers": {
       "type": "array",
-      "description": "browsers",
+      "description": "[TestCafe] browsers to run the tests on",
       "items": {
         "type": "string",
-        "description": "name of the browser"
+        "description": "name of the browser including arguments"
       },
       "default": ["chrome"]
     },
     "host": {
       "type": "string",
-      "description": "Host to listen on.",
+      "description": "[Angular & TestCafe] Host to use to serve the application and host to run TestCafe on",
       "default": "localhost"
     },
     "port": {
       "type": "number",
-      "description": "The port to use to serve the application."
+      "description": "[Angular] The port to use to serve the application."
     },
     "reporters": {
       "type": "array",
-      "description": "the reporter to use",
+      "description": "[TestCafe] specify the reporters and optionally files where reports are saved",
       "items": {
         "type": "object",
         "description": "reporters"
@@ -40,59 +40,59 @@
     },
     "concurrency": {
       "type": "number",
-      "description": ""
+      "description": "[TestCafe] number of concurrent browser instances to run"
     },
     "screenshotsPath": {
       "type": "string",
-      "description": ""
+      "description": "[TestCafe] enable screenshot capturing and specify the path to save the screenshots to"
     },
     "screenshotsOnFails": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] take a screenshot whenever a test fails"
     },
     "screenshotsPathPattern": {
       "type": "string",
-      "description": ""
+      "description": "[TestCafe] use patterns to compose screenshot file names and paths: ${BROWSER}, ${BROWSER_VERSION}, ${OS}, etc."
     },
     "quarantineMode": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] enable the quarantine mode"
     },
     "debugMode": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] execute test steps one by one pausing the test after each step"
     },
     "skipJsErrors": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] make tests not fail when a JS error happens on a page"
     },
     "skipUncaughtErrors": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] ignore uncaught errors and unhandled promise rejections, which occur during test execution"
     },
     "debugOnFail": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] pause the test if it fails"
     },
     "selectorTimeout": {
       "type": "number",
-      "description": ""
+      "description": "[TestCafe] set the amount of time within which selectors make attempts to obtain a node to be returned"
     },
     "assertionTimeout": {
       "type": "number",
-      "description": ""
+      "description": "[TestCafe] set the amount of time within which assertion should pass"
     },
     "pageLoadTimeout": {
       "type": "number",
-      "description": ""
+      "description": "[TestCafe] set the amount of time within which TestCafe waits for the `window.load` event to fire on page load before proceeding to the next test action"
     },
     "speed": {
       "type": "number",
-      "description": ""
+      "description": "[TestCafe] set the speed of test execution (0.01 ... 1)"
     },
     "ports": {
       "type": "array",
-      "description": "",
+      "description": "[TestCafe] the ports to run TestCafe on",
       "items": {
         "type": "number",
         "description": ""
@@ -100,43 +100,43 @@
     },
     "proxy": {
       "type": "string",
-      "description": ""
+      "description": "[TestCafe] specify the host of the proxy server"
     },
     "proxyBypass": {
       "type": "array",
-      "description": "",
+      "description": "[TestCafe] specify a comma-separated list of rules that define URLs accessed bypassing the proxy server",
       "items": {
         "type": "string",
         "description": ""
       }
     },
+    "ssl": {
+      "type": "string",
+      "description": "[TestCafe] "
+    },
     "disablePageReloads": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] disable page reloads between tests"
     },
     "dev": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] enables mechanisms to log and diagnose errors"
     },
     "stopOnFirstFail": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] stop an entire test run if any test fails"
     },
     "disableTestSyntaxValidation": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] disables checks for 'test' and 'fixture' directives to run dynamically loaded tests"
     },
     "color": {
       "type": "boolean",
-      "description": ""
+      "description": "[TestCafe] force colors in command line"
     },
     "NoColor": {
       "type": "boolean",
-      "description": ""
-    },
-    "ssl": {
-      "type": "string",
-      "description": ""
+      "description": "[TestCafe] disable colors in command line"
     }
   }
 }
