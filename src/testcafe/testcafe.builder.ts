@@ -7,9 +7,9 @@ import {
 } from '@angular-devkit/architect';
 import { Observable, of, from } from 'rxjs';
 import { concatMap, take, tap, map } from 'rxjs/operators';
-import * as url from 'url';
 import { DevServerBuilderOptions } from '@angular-devkit/build-angular';
-import * as fs from "fs";
+import * as url from 'url';
+import * as fs from 'fs';
 
 export interface TestcafeBuilderSchema {
   devServerTarget?: string;
@@ -106,44 +106,37 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
   }
 
   private _runTestcafe(options: TestcafeBuilderSchema): Observable<BuildEvent> {
-    return from(this._runTests(options)).pipe(map(() => ({ success: true })));
-  }
-
-  private async _runTests(opts) {
-    const port1             = opts.ports && opts.ports[0];
-    const port2             = opts.ports && opts.ports[1];
-    const externalProxyHost = opts.proxy;
-    const proxyBypass       = opts.proxyBypass;
-
+    const port1 = options.ports && options.ports[0];
+    const port2 = options.ports && options.ports[1];
+    const concurrency = options.concurrency || 1;
+    const externalProxyHost = options.proxy;
+    const proxyBypass = options.proxyBypass;
     const createTestCafe = require('testcafe');
-    const testCafe       = await createTestCafe(opts.host, port1, port2, opts.ssl, opts.dev);
-    const concurrency    = opts.concurrency || 1;
-    const runner         = testCafe.createRunner();
-    let failed           = 0;
-    const reporters      = opts.reporters.map(r => {
+    const reporters = options.reporters.map(r => {
       return {
-        name:      r.name,
+        name: r.name,
         outStream: r.outFile ? fs.createWriteStream(r.outFile) : void 0
       };
     });
-
-    reporters.forEach(r => runner.reporter(r.name, r.outStream));
-
-    runner
-      .useProxy(externalProxyHost, proxyBypass)
-      .src(opts.src)
-      .browsers(opts.browsers)
-      .concurrency(concurrency)
-      .screenshots(opts.screenshotsPath, opts.screenshotsOnFails, opts.screenshotsPathPattern);
-
-    runner.once('done-bootstrapping', () => {});
-
-    try {
-      failed = await runner.run(opts);
-    } finally {
-      await testCafe.close();
-    }
-
-    return setTimeout(() => process.exit(failed ? 1 : 0), 0);
+    return from(createTestCafe(options.host, port1, port2, options.ssl, options.dev).then((testCafe: any) => {
+      const runner = testCafe.createRunner();
+      reporters.forEach(r => runner.reporter(r.name, r.outStream));
+      return runner
+        .useProxy(externalProxyHost, proxyBypass)
+        .src(options.src)
+        .browsers(options.browsers)
+        .concurrency(concurrency)
+        .screenshots(options.screenshotsPath, options.screenshotsOnFails, options.screenshotsPathPattern)
+        .once('done-bootstrapping', () => {
+        })
+        .run(options).then((numFailed: number) => {
+          testCafe.close();
+          process.exit(numFailed ? 1 : 0)
+        }, (err: Error) => {
+          console.error('error happened', err);
+          testCafe.close();
+          process.exit();
+        });
+    })).pipe(map(() => ({success: true})));
   }
 }
