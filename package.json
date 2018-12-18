@@ -1,6 +1,6 @@
 {
   "name": "angular-testcafe-builder",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
