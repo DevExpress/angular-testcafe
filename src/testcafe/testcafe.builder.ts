@@ -135,7 +135,7 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
         }, (err: Error) => {
           console.error('error happened', err);
           testCafe.close();
-          process.exit();
+          process.exit(1);
         });
     })).pipe(map(() => ({success: true})));
   }
