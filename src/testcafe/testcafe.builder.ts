@@ -45,7 +45,7 @@ export interface TestcafeBuilderSchema {
 
 export interface Reporter {
   name: string,
-  outFile?: string;
+  outStream?: string;
 }
 
 export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
@@ -112,20 +112,14 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
     const externalProxyHost = options.proxy;
     const proxyBypass = options.proxyBypass;
     const createTestCafe = require('testcafe');
-    const reporters = options.reporters.map(r => {
-      return {
-        name: r.name,
-        outStream: r.outFile ? fs.createWriteStream(r.outFile) : void 0
-      };
-    });
     return from(createTestCafe(options.host, port1, port2, options.ssl, options.dev).then((testCafe: any) => {
       const runner = testCafe.createRunner();
-      reporters.forEach(r => runner.reporter(r.name, r.outStream));
       return runner
         .useProxy(externalProxyHost, proxyBypass)
         .src(options.src)
         .browsers(options.browsers)
         .concurrency(concurrency)
+        .reporter(options.reporters)
         .screenshots(options.screenshotsPath, options.screenshotsOnFails, options.screenshotsPathPattern)
         .once('done-bootstrapping', () => {
         })
