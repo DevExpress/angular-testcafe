@@ -21,7 +21,7 @@ Serves the Angular application, and then runs the TestCafe tests.
             "reporters": [
               {
                 "name": "html",
-                "outFile": "path/to/my/report.html"
+                "outStream": "path/to/my/report.html"
               },
               {
                 "name": "spec"
