@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/timnederhoff/angular-testcafe.git"
+    "url": "git+https://github.com/politie/angular-testcafe.git"
   },
   "typings": "typings",
   "keywords": [
@@ -23,10 +23,10 @@
   "author": "Tim Nederhoff",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/timnederhoff/angular-testcafe/issues"
+    "url": "https://github.com/politie/angular-testcafe/issues"
   },
   "builders": "builders.json",
-  "homepage": "https://github.com/timnederhoff/angular-testcafe#readme",
+  "homepage": "https://github.com/politie/angular-testcafe#readme",
   "devDependencies": {
     "@angular-devkit/architect": "^0.10.6",
     "@angular-devkit/build-angular": ">=0.10.6",
