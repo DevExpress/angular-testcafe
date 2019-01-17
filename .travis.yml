@@ -3,4 +3,4 @@ node_js:
 - "10" # current dev version; first in list will be used by greenkeeper-lock
 - "8" # LTS support until december 2019
 - "6" # LTS support until april 2019
-script: npm run build && npm run pack
+script: npm run build && npm pack
