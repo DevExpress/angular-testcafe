@@ -58,4 +58,3 @@ npm pack
 * `--fixture-meta` argument
 * QR code
 * tests
-
