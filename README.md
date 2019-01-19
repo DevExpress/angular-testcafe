@@ -2,6 +2,11 @@
 A custom Angular builder for [TestCafe](http://devexpress.github.io/testcafe/).
 Serves the Angular application, and then runs the TestCafe tests.
 
+## Install
+```bash
+$ npm install --save-dev @politie/angular-testcafe-builder
+```
+
 ## Use in angular.json
 ```json
 {
@@ -40,12 +45,12 @@ Serves the Angular application, and then runs the TestCafe tests.
 
 ## build
 ```bash
-npm run build
+$ npm run build
 ```
 
 ## pack
 ```bash
-npm pack
+$ npm pack
 ```
 
 ## NOT Implemented (TODO):

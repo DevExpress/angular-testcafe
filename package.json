@@ -1,5 +1,5 @@
 {
-  "name": "angular-testcafe-builder",
+  "name": "@politie/angular-testcafe-builder",
   "version": "1.0.5",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
