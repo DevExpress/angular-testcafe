@@ -9,7 +9,7 @@ import { Observable, of, from } from 'rxjs';
 import { concatMap, take, tap, map } from 'rxjs/operators';
 import { DevServerBuilderOptions } from '@angular-devkit/build-angular';
 import * as url from 'url';
-import * as fs from 'fs';
+import { isMatch } from 'lodash';
 
 export interface TestcafeBuilderSchema {
   devServerTarget?: string;
@@ -41,6 +41,12 @@ export interface TestcafeBuilderSchema {
   color?: boolean;
   NoColor?: boolean;
   ssl?: string;
+  test?: string;
+  testGrep?: string;
+  testMeta?: object;
+  fixture?: string;
+  fixtureGrep?: string;
+  fixtureMeta?: object;
 }
 
 export interface Reporter {
@@ -112,7 +118,7 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
     const externalProxyHost = options.proxy;
     const proxyBypass = options.proxyBypass;
     const createTestCafe = require('testcafe');
-    return from(createTestCafe(options.host, port1, port2, options.ssl, options.dev).then((testCafe: any) => {
+    return from(createTestCafe(options.host, port1, port2, options.ssl, options.dev).then((testCafe) => {
       const runner = testCafe.createRunner();
       return runner
         .useProxy(externalProxyHost, proxyBypass)
@@ -120,6 +126,27 @@ export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
         .browsers(options.browsers)
         .concurrency(concurrency)
         .reporter(options.reporters)
+        .filter((testName, fixtureName, fixturePath, testMeta, fixtureMeta) => {
+          if (options.test && testName !== options.test)
+            return false;
+
+          if (options.testGrep && !RegExp(options.testGrep).test(testName))
+            return false;
+
+          if (options.fixture && fixtureName !== options.fixture)
+            return false;
+
+          if (options.fixtureGrep && !RegExp(options.fixtureGrep).test(fixtureName))
+            return false;
+
+          if (options.testMeta && !isMatch(testMeta, options.testMeta))
+            return false;
+
+          if (options.fixtureMeta && !isMatch(fixtureMeta, options.fixtureMeta))
+            return false;
+
+          return true;
+        })
         .screenshots(options.screenshotsPath, options.screenshotsOnFails, options.screenshotsPathPattern)
         .once('done-bootstrapping', () => {
         })

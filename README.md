@@ -55,11 +55,5 @@ $ npm pack
 
 ## NOT Implemented (TODO):
 * remote browsers
-* `--test` argument
-* `--test-grep` argument
-* `--test-meta` argument
-* `--fixture` argument
-* `--fixture-grep` argument
-* `--fixture-meta` argument
 * QR code
 * tests

@@ -112,7 +112,7 @@
     },
     "ssl": {
       "type": "string",
-      "description": "[TestCafe] "
+      "description": "[TestCafe] specify SSL options to run TestCafe proxy server over the HTTPS protocol"
     },
     "disablePageReloads": {
       "type": "boolean",
@@ -137,6 +137,30 @@
     "NoColor": {
       "type": "boolean",
       "description": "[TestCafe] disable colors in command line"
+    },
+    "test": {
+      "type": "string",
+      "description": "[TestCafe] run only tests with the specified name"
+    },
+    "testGrep": {
+      "type": "string",
+      "description": "[TestCafe] run only tests matching the specified pattern"
+    },
+    "testMeta": {
+      "type": "object",
+      "description": "[TestCafe] run only tests with matching metadata"
+    },
+    "fixture": {
+      "type": "string",
+      "description": "[TestCafe] run only fixtures with the specified name"
+    },
+    "fixtureGrep": {
+      "type": "string",
+      "description": "[TestCafe] run only fixtures matching the specified pattern"
+    },
+    "fixtureMeta": {
+      "type": "object",
+      "description": "[TestCafe] run only fixtures with matching metadata"
     }
   }
 }
