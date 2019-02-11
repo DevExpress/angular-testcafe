@@ -26,7 +26,7 @@ $ npm install --save-dev @politie/angular-testcafe-builder
             "reporters": [
               {
                 "name": "html",
-                "outStream": "path/to/my/report.html"
+                "output": "path/to/my/report.html"
               },
               {
                 "name": "spec"
