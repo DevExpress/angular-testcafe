@@ -1,6 +1,6 @@
 {
   "name": "@politie/angular-testcafe-builder",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
@@ -31,12 +31,12 @@
     "@angular-devkit/architect": "^0.13.1",
     "@angular-devkit/build-angular": "^0.13.0",
     "@types/node": "^10.12.9",
-    "testcafe": "^1.0.0-alpha.4",
+    "testcafe": "1.0.0",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.6"
   },
   "peerDependencies": {
-    "testcafe": ">=0.23.3"
+    "testcafe": ">=1.0.0"
   },
   "dependencies": {
     "lodash": "4.17.11"

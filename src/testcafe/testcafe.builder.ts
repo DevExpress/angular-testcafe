@@ -51,7 +51,7 @@ export interface TestcafeBuilderSchema {
 
 export interface Reporter {
   name: string,
-  outStream?: string;
+  output?: string;
 }
 
 export default class TestcafeBuilder implements Builder<TestcafeBuilderSchema> {
