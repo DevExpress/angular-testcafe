@@ -28,7 +28,7 @@
   "builders": "builders.json",
   "homepage": "https://github.com/politie/angular-testcafe#readme",
   "devDependencies": {
-    "@angular-devkit/architect": "^0.13.1",
+    "@angular-devkit/architect": "^0.800.0",
     "@angular-devkit/build-angular": "^0.13.0",
     "@types/node": "^10.12.9",
     "testcafe": "1.0.0",
