@@ -5,63 +5,55 @@ import {
   targetFromTargetString,
 } from '@angular-devkit/architect';
 import { JsonObject, tags } from '@angular-devkit/core';
+import { TestcafeBuilderOptions } from './schema';
 import * as url from 'url';
 import { isMatch } from 'lodash';
-import { TestcafeBuilderOptions } from './schema';
+const createTestCafe = require('testcafe');
 
-//TODO: change code to fit angular 8: https://blog.angularindepth.com/angular-cli-under-the-hood-builders-demystified-v2-e73ee0f2d811
+async function runTestcafe(opts: TestcafeBuilderOptions) {
+  const port1             = opts.ports && opts.ports[0];
+  const port2             = opts.ports && opts.ports[1];
+  const proxy             = opts.proxy;
+  const proxyBypass       = opts.proxyBypass;
 
-function runTestcafe(root: String, options: TestcafeBuilderOptions): Promise<BuilderOutput> {
-  const port1 = options.ports && options.ports[0];
-  const port2 = options.ports && options.ports[1];
-  const concurrency = options.concurrency || 1;
-  const externalProxyHost = options.proxy;
-  const proxyBypass = options.proxyBypass;
-  const createTestCafe = require('testcafe');
-  return createTestCafe(options.host, port1, port2, options.ssl, options.dev).then((testCafe) => {
-    const runner = testCafe.createRunner();
-    return runner
-        .useProxy(externalProxyHost, proxyBypass)
-        .src(options.src)
-        .browsers(options.browsers)
-        .concurrency(concurrency)
-        .reporter(options.reporters)
-        .filter((testName, fixtureName, fixturePath, testMeta, fixtureMeta) => {
-          if (options.test && testName !== options.test)
-            return false;
+  const testCafe = await createTestCafe(opts.host, port1, port2, opts.ssl, opts.dev);
 
-          if (options.testGrep && !RegExp(options.testGrep).test(testName))
-            return false;
+  const runner = opts.live ? testCafe.createLiveModeRunner() : testCafe.createRunner();
 
-          if (options.fixture && fixtureName !== options.fixture)
-            return false;
+  runner.isCli = true;
 
-          if (options.fixtureGrep && !RegExp(options.fixtureGrep).test(fixtureName))
-            return false;
+  return runner
+      .useProxy(proxy, proxyBypass)
+      .src(opts.src)
+      .browsers(opts.browsers)
+      // .reporter(opts.reporters)
+      .concurrency(opts.concurrency || 1)
+      .filter((testName, fixtureName, fixturePath, testMeta, fixtureMeta) => {
+        if (opts.test && testName !== opts.test)
+          return false;
 
-          if (options.testMeta && !isMatch(testMeta, options.testMeta))
-            return false;
+        if (opts.testGrep && !RegExp(opts.testGrep).test(testName))
+          return false;
 
-          if (options.fixtureMeta && !isMatch(fixtureMeta, options.fixtureMeta))
-            return false;
+        if (opts.fixture && fixtureName !== opts.fixture)
+          return false;
 
-          return true;
-        })
-        .screenshots(options.screenshotsPath, options.screenshotsOnFails, options.screenshotsPathPattern)
-        .once('done-bootstrapping', () => {
-        })
-        .run(options).then((numFailed: number) => {
-          testCafe.close();
-          process.exit(numFailed ? 1 : 0)
-        }, (err: Error) => {
-          console.error('error happened', err);
-          testCafe.close();
-          process.exit(1);
-        });
-  }) as Promise<BuilderOutput>;
+        if (opts.fixtureGrep && !RegExp(opts.fixtureGrep).test(fixtureName))
+          return false;
+
+        if (opts.testMeta && !isMatch(testMeta, opts.testMeta))
+          return false;
+
+        if (opts.fixtureMeta && !isMatch(fixtureMeta, opts.fixtureMeta))
+          return false;
+
+        return true;
+      })
+      .screenshots(opts.screenshotsPath || '.', opts.screenshotsOnFails, opts.screenshotsPathPattern)
+      .run(opts);
 }
 
-export async function execute(
+async function execute(
     options: TestcafeBuilderOptions,
     context: BuilderContext,
 ): Promise<BuilderOutput> {
@@ -121,7 +113,7 @@ export async function execute(
   }
 
   try {
-    return await runTestcafe(context.workspaceRoot, options);
+    return runTestcafe({ ...options, baseUrl });
   } catch {
     return { success: false };
   } finally {

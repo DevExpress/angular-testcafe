@@ -6,6 +6,7 @@ export interface TestcafeBuilderOptions {
     port?: number;
     baseUrl?: string;
     reporters: Reporter[];
+    live?: boolean;
     concurrency?: number;
     screenshotsPath?: string;
     screenshotsOnFails?: boolean;
