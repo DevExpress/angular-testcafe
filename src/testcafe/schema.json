@@ -1,7 +1,8 @@
 {
-  "id": "TestcafeBuilderSchema",
+  "id": "TestcafeBuilderOptions",
   "title": "TestCafe builder",
   "description": "TestCafe builder options",
+  "type": "object",
   "properties": {
     "devServerTarget": {
       "type": "string",
@@ -28,6 +29,10 @@
     "port": {
       "type": "number",
       "description": "[Angular] The port to use to serve the application."
+    },
+    "baseUrl": {
+      "type": "string",
+      "description": "Base URL for Testcafe to connect to."
     },
     "reporters": {
       "type": "array",
@@ -162,5 +167,12 @@
       "type": "object",
       "description": "[TestCafe] run only fixtures with matching metadata"
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": [
+    "browsers",
+    "host",
+    "port",
+    "src"
+  ]
 }
