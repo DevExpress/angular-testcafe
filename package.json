@@ -4,8 +4,10 @@
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
+    "postinstall": "cd demo-app && npm install",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "e2e": "cd demo-app && npm run e2e"
   },
   "repository": {
     "type": "git",
