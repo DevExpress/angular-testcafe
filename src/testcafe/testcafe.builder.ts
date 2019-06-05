@@ -61,7 +61,6 @@ async function execute(
   if (options.devServerTarget && options.baseUrl) {
     throw new Error(tags.stripIndents`
     The 'baseUrl' option cannot be used with 'devServerTarget'.
-    When present, 'devServerTarget' will be used to automatically setup 'baseUrl' for Protractor.
     `);
   }
 
