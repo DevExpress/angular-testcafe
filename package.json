@@ -1,11 +1,12 @@
 {
   "name": "@politie/angular-testcafe-builder",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "e2e": "cd demo-app && npm install && npm run e2e"
   },
   "repository": {
     "type": "git",
@@ -28,15 +29,16 @@
   "builders": "builders.json",
   "homepage": "https://github.com/politie/angular-testcafe#readme",
   "devDependencies": {
-    "@angular-devkit/architect": "^0.13.1",
-    "@angular-devkit/build-angular": "^0.800.0",
-    "@types/node": "^12.0.6",
-    "testcafe": "1.0.0",
+    "@angular-devkit/architect": "^0.800.1",
+    "@angular-devkit/build-angular": "0.800.1",
+    "@angular-devkit/core": "^8.0.1",
+    "@types/node": "^10.14.8",
+    "testcafe": "1.2.0",
     "ts-node": "^7.0.1",
-    "typescript": "^3.1.6"
+    "typescript": "^3.5.1"
   },
   "peerDependencies": {
-    "testcafe": ">=1.0.0"
+    "testcafe": ">=1.1.0"
   },
   "dependencies": {
     "lodash": "4.17.11"
