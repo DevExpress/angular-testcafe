@@ -59,6 +59,7 @@
           "options": {
             "browserTarget": "demo-app:build",
             "host": "localhost",
+            "baseHref": "localhost",
             "port": 4200
           },
           "configurations": {
@@ -106,8 +107,10 @@
         "e2e": {
           "builder": "@politie/angular-testcafe-builder:testcafe",
           "options": {
-            "browsers": ["chrome --no-sandbox --window-size=1920,1080"],
             "devServerTarget": "demo-app:serve",
+            "browsers": [
+              "chrome --no-sandbox --window-size=1920,1080"
+            ],
             "host": "localhost",
             "port": 4200
           },
@@ -124,6 +127,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "demo-app"
 }
