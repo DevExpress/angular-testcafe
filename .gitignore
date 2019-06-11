@@ -1,3 +1,7 @@
+# Transpiled js files
+*.js
+*.js.map
+
 # Logs
 logs
 *.log
