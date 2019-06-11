@@ -65,6 +65,11 @@
           "configurations": {
             "production": {
               "browserTarget": "demo-app:build:production"
+            },
+            "stubbed": {
+              "browserTarget": "demo-app:build",
+              "publicHost": "localhost:4200",
+              "progress": false
             }
           }
         },
@@ -107,7 +112,7 @@
         "e2e": {
           "builder": "@politie/angular-testcafe-builder:testcafe",
           "options": {
-            "devServerTarget": "demo-app:serve",
+            "devServerTarget": "demo-app:serve:stubbed",
             "browsers": [
               "chrome --no-sandbox --window-size=1920,1080"
             ],

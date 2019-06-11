@@ -30,38 +30,37 @@ async function runTestcafe(opts: TestcafeBuilderOptions) {
 
 	runner.isCli = true;
 
-	return (
-		runner
-			.useProxy(proxy, proxyBypass)
-			.src(opts.src)
-			.browsers(opts.browsers)
-			// .reporter(opts.reporters)
-			.concurrency(opts.concurrency || 1)
-			.filter((testName, fixtureName, fixturePath, testMeta, fixtureMeta) => {
-				if (opts.test && testName !== opts.test) return false;
+	return runner
+		.useProxy(proxy, proxyBypass)
+		.src(opts.src)
+		.browsers(opts.browsers)
+		// .reporter(opts.reporters)
+		.concurrency(opts.concurrency || 1)
+		.filter((testName, fixtureName, fixturePath, testMeta, fixtureMeta) => {
+			if (opts.test && testName !== opts.test) return false;
 
-				if (opts.testGrep && !RegExp(opts.testGrep).test(testName))
-					return false;
+			if (opts.testGrep && !RegExp(opts.testGrep).test(testName))
+				return false;
 
-				if (opts.fixture && fixtureName !== opts.fixture) return false;
+			if (opts.fixture && fixtureName !== opts.fixture) return false;
 
-				if (opts.fixtureGrep && !RegExp(opts.fixtureGrep).test(fixtureName))
-					return false;
+			if (opts.fixtureGrep && !RegExp(opts.fixtureGrep).test(fixtureName))
+				return false;
 
-				if (opts.testMeta && !isMatch(testMeta, opts.testMeta)) return false;
+			if (opts.testMeta && !isMatch(testMeta, opts.testMeta)) return false;
 
-				if (opts.fixtureMeta && !isMatch(fixtureMeta, opts.fixtureMeta))
-					return false;
+			if (opts.fixtureMeta && !isMatch(fixtureMeta, opts.fixtureMeta))
+				return false;
 
-				return true;
-			})
-			.screenshots(
-				opts.screenshotsPath || ".",
-				opts.screenshotsOnFails,
-				opts.screenshotsPathPattern
-			)
-			.run(opts)
-	);
+			return true;
+		})
+		.screenshots(
+			opts.screenshotsPath || ".",
+			opts.screenshotsOnFails,
+			opts.screenshotsPathPattern
+		)
+		.run(opts);
+
 }
 
 async function execute(
@@ -123,15 +122,14 @@ async function execute(
 	}
 
 	try {
-		return runTestcafe({ ...options, baseUrl })
-			.then(() => {
-				return { success: true };
-			})
-			.catch(e => {
-				return { error: e, success: false };
-			});
+		const failedCount = await runTestcafe({ ...options, baseUrl });
+		if (failedCount > 0) {
+			return { success: false }
+		} else {
+			return { success: true }
+		}
 	} catch (e) {
-		return { success: false, error: e };
+		return { success: false };
 	} finally {
 		if (server) {
 			await server.stop();
