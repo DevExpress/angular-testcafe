@@ -36,7 +36,8 @@
     },
     "live": {
       "type": "boolean",
-      "description": "Enables live mode. In this mode, TestCafe watches for changes you make in the test files and all files referenced in them (like page objects or helper modules). These changes immediately restart the tests so that you can see the effect."
+      "description": "Enables live mode. In this mode, TestCafe watches for changes you make in the test files and all files referenced in them (like page objects or helper modules). These changes immediately restart the tests so that you can see the effect.",
+      "default": false
     },
     "reporters": {
       "type": "array",

@@ -100,6 +100,7 @@ async function execute(
 		server = await context.scheduleTarget(target, overrides);
 		const result = await server.result;
 		if (!result.success) {
+			console.log('SERVER.RESULT IS NOT SUCCESS!!!');
 			return { success: false };
 		}
 
@@ -129,7 +130,8 @@ async function execute(
 			return { success: true }
 		}
 	} catch (e) {
-		return { success: false };
+		console.error('Testcafe run failed!!! error:', e);
+		return { success: false, error: e.message };
 	} finally {
 		if (server) {
 			await server.stop();
