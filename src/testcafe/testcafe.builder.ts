@@ -34,7 +34,7 @@ async function runTestcafe(opts: TestcafeBuilderOptions) {
 		.useProxy(proxy, proxyBypass)
 		.src(opts.src)
 		.browsers(opts.browsers)
-		// .reporter(opts.reporters)
+		.reporter(opts.reporters)
 		.concurrency(opts.concurrency || 1)
 		.filter((testName, fixtureName, fixturePath, testMeta, fixtureMeta) => {
 			if (opts.test && testName !== opts.test) return false;

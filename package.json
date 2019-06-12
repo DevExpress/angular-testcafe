@@ -34,6 +34,7 @@
     "@angular-devkit/core": "^8.0.1",
     "@types/node": "^10.14.8",
     "testcafe": "1.2.1",
+    "testcafe-reporter-html": "^1.4.4",
     "ts-node": "^7.0.1",
     "typescript": "^3.5.1"
   },

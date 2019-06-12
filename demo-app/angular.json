@@ -117,7 +117,16 @@
               "chrome --no-sandbox --window-size=1920,1080"
             ],
             "host": "localhost",
-            "port": 4200
+            "port": 4200,
+            "reporters": [
+              {
+                "name": "spec"
+              },
+              {
+                "name": "html",
+                "output": "target/testreport/index.html"
+              }
+            ]
           },
           "configurations": {
             "passing": {
