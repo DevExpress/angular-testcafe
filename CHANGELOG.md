@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.0 (2019-6-12)
+bugfixes:
+* console error for testcafe runner failures
+* fixed reporters
+
+## v2.0.0 (2019-6-11)
+compatible with Angular 8
+
 ## v1.0.7 (2019-2-11)
 compatible with testcafe 1.0.0 (use `reporter: [{ name: '', output: '' }]` )
 
