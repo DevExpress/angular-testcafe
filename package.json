@@ -1,6 +1,6 @@
 {
   "name": "@politie/angular-testcafe-builder",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
