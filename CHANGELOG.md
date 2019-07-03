@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.0.2 (2019-7-03)
+added testcafe 1.3.0 features:
+* added tsConfigPath entry in the schema
+
+## v2.0.1 (2019-06-12)
+Bugfixes:
+* console error for testcafe runner failures
+* fixed reporters
+
 ## v2.0.0 (2019-6-12)
 bugfixes:
 * console error for testcafe runner failures

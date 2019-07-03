@@ -36,6 +36,7 @@ export interface TestcafeBuilderOptions {
     fixture?: string;
     fixtureGrep?: string;
     fixtureMeta?: object;
+    tsConfigPath?: string;
 }
 
 export interface Reporter {

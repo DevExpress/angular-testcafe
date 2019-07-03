@@ -171,6 +171,10 @@
     "fixtureMeta": {
       "type": "object",
       "description": "[TestCafe] run only fixtures with matching metadata"
+    },
+    "tsConfigPath": {
+      "type": "string",
+      "description": "[TestCafe] Specifies the TypeScript configuration file location"
     }
   },
   "additionalProperties": false,
