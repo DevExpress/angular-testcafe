@@ -57,3 +57,4 @@ $ npm pack
 * remote browsers
 * QR code
 * tests
+* support for testcafe version 1.3.0
