@@ -56,5 +56,4 @@ $ npm pack
 ## NOT Implemented (TODO):
 * remote browsers
 * QR code
-* tests
-* support for testcafe version 1.3.0
+* testS
