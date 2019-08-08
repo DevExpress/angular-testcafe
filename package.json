@@ -30,7 +30,7 @@
   "homepage": "https://github.com/politie/angular-testcafe#readme",
   "devDependencies": {
     "@angular-devkit/architect": "^0.802.0",
-    "@angular-devkit/build-angular": "^0.801.0",
+    "@angular-devkit/build-angular": "^0.802.0",
     "@angular-devkit/core": "^8.1.0",
     "@types/node": "^12.0.8",
     "testcafe": "1.3.2",
