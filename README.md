@@ -20,7 +20,7 @@ $ npm install --save-dev @politie/angular-testcafe-builder
               "chrome --no-sandbox",
               "firefox"
             ],
-            "src": "e2e/*.e2e-spec.ts",
+            "src": ["e2e/*.e2e-spec.ts"],
             "host": "localhost",
             "port": "4200",
             "reporters": [
