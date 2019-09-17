@@ -29,11 +29,11 @@
   "builders": "builders.json",
   "homepage": "https://github.com/politie/angular-testcafe#readme",
   "devDependencies": {
-    "@angular-devkit/architect": "^0.803.0",
-    "@angular-devkit/build-angular": "^0.803.1",
-    "@angular-devkit/core": "^8.1.0",
+    "@angular-devkit/architect": "0.803.4",
+    "@angular-devkit/build-angular": "0.803.4",
+    "@angular-devkit/core": "8.3.4",
     "@types/node": "^12.0.8",
-    "testcafe": "1.4.1",
+    "testcafe": "1.5.0",
     "testcafe-reporter-html": "^1.4.4",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.1"

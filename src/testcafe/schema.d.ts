@@ -1,6 +1,6 @@
 export interface TestcafeBuilderOptions {
     devServerTarget?: string;
-    src: string;
+    src: string | string[];
     browsers: string[];
     host: string;
     port?: number;

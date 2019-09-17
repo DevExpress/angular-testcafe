@@ -9,8 +9,12 @@
       "description": "[Angular] Dev server target to run tests against."
     },
     "src": {
-      "type": "string",
-      "description": "[TestCafe] Tests to run: file or glob. You can use one or more file paths or glob patterns to specify which tests to run."
+      "type": "array",
+      "description": "[TestCafe] Tests to run: file or glob. You can use one or more file paths or glob patterns to specify which tests to run.",
+      "items": {
+        "type": "string",
+        "description": "path of the test file"
+      }
     },
     "browsers": {
       "type": "array",

@@ -130,13 +130,13 @@
           },
           "configurations": {
             "passing": {
-              "src": "e2e/passing.e2e-spec.ts"
+              "src": ["e2e/passing.e2e-spec.ts"]
             },
             "failing": {
-              "src": "e2e/passing.e2e-spec.ts"
+              "src": ["e2e/passing.e2e-spec.ts"]
             },
             "error": {
-              "src": "my/invalid/path-to-src"
+              "src": ["my/invalid/path-to-src"]
             }
           }
         }
