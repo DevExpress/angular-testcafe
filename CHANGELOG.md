@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.3 (2019-9-17)
+Bugfixes:
+* accept src option as array instead of string
+
 ## v2.0.2 (2019-7-11)
 added testcafe 1.3.1 features:
 * added tsConfigPath entry in the schema
