@@ -21,8 +21,6 @@ $ npm install --save-dev @politie/angular-testcafe-builder
               "firefox"
             ],
             "src": ["e2e/*.e2e-spec.ts"],
-            "host": "localhost",
-            "port": "4200",
             "reporters": [
               {
                 "name": "html",
@@ -56,4 +54,5 @@ $ npm pack
 ## NOT Implemented (TODO):
 * remote browsers
 * QR code
-* testS
+* video
+* ssl

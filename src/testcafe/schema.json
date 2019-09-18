@@ -27,16 +27,8 @@
     },
     "host": {
       "type": "string",
-      "description": "[Angular & TestCafe] Host to use to serve the application and host to run TestCafe on",
+      "description": "[TestCafe] Host to use to run TestCafe on (only if devServerTarget is not set), default = localhost",
       "default": "localhost"
-    },
-    "port": {
-      "type": "number",
-      "description": "[Angular] The port to use to serve the application."
-    },
-    "baseUrl": {
-      "type": "string",
-      "description": "Base URL for Testcafe to connect to."
     },
     "live": {
       "type": "boolean",
@@ -183,9 +175,6 @@
   },
   "additionalProperties": false,
   "required": [
-    "browsers",
-    "host",
-    "port",
     "src"
   ]
 }

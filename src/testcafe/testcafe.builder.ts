@@ -4,20 +4,19 @@ import {
 	createBuilder,
 	targetFromTargetString
 } from "@angular-devkit/architect";
-import { JsonObject, tags } from "@angular-devkit/core";
+import { JsonObject } from "@angular-devkit/core";
 import { TestcafeBuilderOptions } from "./schema";
-import * as url from "url";
 import { isMatch } from "lodash";
 const createTestCafe = require("testcafe");
 
-async function runTestcafe(opts: TestcafeBuilderOptions) {
+async function runTestcafe(opts: TestcafeBuilderOptions, hostName) {
 	const port1 = opts.ports && opts.ports[0];
 	const port2 = opts.ports && opts.ports[1];
 	const proxy = opts.proxy;
 	const proxyBypass = opts.proxyBypass;
 
 	const testCafe = await createTestCafe(
-		opts.host,
+		hostName,
 		port1,
 		port2,
 		opts.ssl,
@@ -67,63 +66,23 @@ async function execute(
 	options: TestcafeBuilderOptions,
 	context: BuilderContext
 ): Promise<BuilderOutput> {
-	// ensure that only one of these options is used
-	if (options.devServerTarget && options.baseUrl) {
-		throw new Error(tags.stripIndents`
-    The 'baseUrl' option cannot be used with 'devServerTarget'.
-    `);
-	}
-
-	let baseUrl;
 	let server;
+	let serverOptions;
 	if (options.devServerTarget) {
 		const target = targetFromTargetString(options.devServerTarget);
-		const serverOptions = await context.getTargetOptions(target);
+		serverOptions = await context.getTargetOptions(target);
 
-		const overrides: Record<string, string | number | boolean> = {
-			watch: false
-		};
-		if (options.host !== undefined) {
-			overrides.host = options.host;
-		} else if (typeof serverOptions.host === "string") {
-			options.host = serverOptions.host;
-		} else {
-			options.host = overrides.host = "localhost";
-		}
-
-		if (options.port !== undefined) {
-			overrides.port = options.port;
-		} else if (typeof serverOptions.port === "number") {
-			options.port = serverOptions.port;
-		}
-
-		server = await context.scheduleTarget(target, overrides);
+		server = await context.scheduleTarget(target);
 		const result = await server.result;
 		if (!result.success) {
 			console.log('SERVER.RESULT IS NOT SUCCESS!!!');
 			return { success: false };
 		}
-
-		if (typeof serverOptions.publicHost === "string") {
-			let publicHost = serverOptions.publicHost as string;
-			if (!/^\w+:\/\//.test(publicHost)) {
-				publicHost = `${serverOptions.ssl ? "https" : "http"}://${publicHost}`;
-			}
-			const clientUrl = url.parse(publicHost);
-			baseUrl = url.format(clientUrl);
-		} else if (typeof result.baseUrl === "string") {
-			baseUrl = result.baseUrl;
-		} else if (typeof result.port === "number") {
-			baseUrl = url.format({
-				protocol: serverOptions.ssl ? "https" : "http",
-				hostname: options.host,
-				port: result.port.toString()
-			});
-		}
 	}
 
 	try {
-		const failedCount = await runTestcafe({ ...options, baseUrl });
+	    const host = serverOptions ? serverOptions.host : options.host;
+		const failedCount = await runTestcafe(options, host);
 		if (failedCount > 0) {
 			return { success: false }
 		} else {

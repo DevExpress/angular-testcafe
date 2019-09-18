@@ -1,12 +1,10 @@
 export interface TestcafeBuilderOptions {
-    devServerTarget?: string;
     src: string | string[];
-    browsers: string[];
-    host: string;
-    port?: number;
-    baseUrl?: string;
-    reporters: Reporter[];
-    live?: boolean;
+    browsers?: string[]; // default in schema.json
+    reporters?: Reporter[]; // default in schema.json
+    devServerTarget?: string; // set to run ng serve
+    host?: string; // default in schema.json
+    live?: boolean; // default in schema.json
     concurrency?: number;
     screenshotsPath?: string;
     screenshotsOnFails?: boolean;
@@ -20,7 +18,7 @@ export interface TestcafeBuilderOptions {
     assertionTimeout?: number;
     pageLoadTimeout?: number;
     speed?: number;
-    ports?: number[];
+    ports?: number[]; // testcafe ports
     proxy?: string;
     proxyBypass?: string[];
     disablePageReloads?: boolean;

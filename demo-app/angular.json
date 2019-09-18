@@ -112,12 +112,10 @@
         "e2e": {
           "builder": "@politie/angular-testcafe-builder:testcafe",
           "options": {
-            "devServerTarget": "demo-app:serve:stubbed",
             "browsers": [
               "chrome --no-sandbox --window-size=1920,1080"
             ],
-            "host": "localhost",
-            "port": 4200,
+            "screenshotsOnFails": true,
             "reporters": [
               {
                 "name": "spec"
@@ -130,13 +128,18 @@
           },
           "configurations": {
             "passing": {
+              "devServerTarget": "demo-app:serve:stubbed",
               "src": ["e2e/passing.e2e-spec.ts"]
             },
             "failing": {
-              "src": ["e2e/passing.e2e-spec.ts"]
+              "devServerTarget": "demo-app:serve:stubbed",
+              "src": ["e2e/failing.e2e-spec.ts"]
             },
-            "error": {
+            "error": {"devServerTarget": "demo-app:serve:stubbed",
               "src": ["my/invalid/path-to-src"]
+            },
+            "externalsite": {
+              "src": ["e2e/externalsite.e2e-spec.ts"]
             }
           }
         }
