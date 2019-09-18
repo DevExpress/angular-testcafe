@@ -37,9 +37,7 @@ $ npm install --save-dev @politie/angular-testcafe-builder
   }
 }
 ```
-> NOTE: check [schema.json](src/testcafe/schema.json) for a list of all options
-
-> NOTE: `port`/`host` is for Angular to be served on. `ports` are the ports for TestCafe to run on   
+> NOTE: check [schema.json](src/testcafe/schema.json) for a list of all options   
 
 ## build
 ```bash

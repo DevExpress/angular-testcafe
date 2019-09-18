@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.0.4 (2019-9-18)
+No need specify `port` and `host` option anymore
+`host` is only to overwrite the hostname TestCafe runs on when running without launching the Angular Application. When
+devServerTarget is set, the `host` option from that target will be used to run TestCafe on.
+
 ## v2.0.3 (2019-9-17)
 Bugfixes:
 * accept src option as array instead of string
