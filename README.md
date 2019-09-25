@@ -37,7 +37,9 @@ $ npm install --save-dev @politie/angular-testcafe-builder
   }
 }
 ```
-> NOTE: check [schema.json](src/testcafe/schema.json) for a list of all options   
+> NOTE: check [schema.json](src/testcafe/schema.json) for a list of all options
+
+A tutorial how to use Angular and Testcafe combined with this builder can be found [here](https://medium.com/test-automation-pro/testcafe-tests-in-an-angular-project-e1d1ccc6e1cb)
 
 ## build
 ```bash
