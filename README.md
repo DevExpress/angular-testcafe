@@ -1,4 +1,4 @@
-# angular-testcafe [![Build Status](https://travis-ci.org/politie/angular-testcafe.svg?branch=master)](https://travis-ci.org/politie/angular-testcafe) [![Greenkeeper badge](https://badges.greenkeeper.io/politie/angular-testcafe.svg)](https://greenkeeper.io/)
+# angular-testcafe [![Build Status](https://travis-ci.org/politie/angular-testcafe.svg?branch=master)](https://travis-ci.org/politie/angular-testcafe)
 A custom Angular builder for [TestCafe](http://devexpress.github.io/testcafe/).
 Serves the Angular application, and then runs the TestCafe tests.
 
