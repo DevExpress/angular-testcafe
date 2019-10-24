@@ -115,7 +115,12 @@
             "browsers": [
               "chrome --no-sandbox --window-size=1920,1080"
             ],
-            "screenshotsOnFails": true,
+            "screenshots": {
+              "path": "./target/testreport/screenshots",
+              "takeOnFails": true,
+              "pathPattern": "test-${TEST_INDEX}-${FILE_INDEX}_${QUARANTINE_ATTEMPT}",
+              "fullPage": false
+            },
             "reporters": [
               {
                 "name": "spec"
@@ -129,7 +134,7 @@
           "configurations": {
             "passing": {
               "devServerTarget": "demo-app:serve:stubbed",
-              "src": ["e2e/passing.e2e-spec.ts"]
+              "src": "e2e/passing.e2e-spec.ts"
             },
             "failing": {
               "devServerTarget": "demo-app:serve:stubbed",

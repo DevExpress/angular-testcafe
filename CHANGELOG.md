@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.0.5 (2019-10-24)
+* Possible to use either string or string[] as `src` property
+* screenshot options are nested in the `screenshot` property:
+```json
+"screenshots": {
+    "path": "./target/testreport/screenshots",
+    "takeOnFails": true,
+    "pathPattern": "test-${TEST_INDEX}-${FILE_INDEX}_${QUARANTINE_ATTEMPT}",
+    "fullPage": false
+    }
+```
+
 ## v2.0.4 (2019-9-18)
 No need specify `port` and `host` option anymore
 `host` is only to overwrite the hostname TestCafe runs on when running without launching the Angular Application. When

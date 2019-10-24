@@ -56,3 +56,4 @@ $ npm pack
 * QR code
 * video
 * ssl
+* clientScripts

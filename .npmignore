@@ -4,7 +4,7 @@
 **/*.ts
 **/*.js.map
 
-node_modules
-demo-app
+node_modules/
+demo-app/
 
 *.tgz

@@ -31,7 +31,8 @@ async function runTestcafe(opts: TestcafeBuilderOptions, hostName) {
 
 	return runner
 		.useProxy(proxy, proxyBypass)
-		.src(opts.src)
+		.src(opts.src instanceof Array ? opts.src : [ opts.src ])
+		.tsConfigPath(opts.tsConfigPath)
 		.browsers(opts.browsers)
 		.reporter(opts.reporters)
 		.concurrency(opts.concurrency || 1)
@@ -53,13 +54,20 @@ async function runTestcafe(opts: TestcafeBuilderOptions, hostName) {
 
 			return true;
 		})
-		.screenshots(
-			opts.screenshotsPath || ".",
-			opts.screenshotsOnFails,
-			opts.screenshotsPathPattern
-		)
-		.run(opts);
-
+		.screenshots(opts.screenshots)
+		.run({
+			allowMultipleWindows: opts.allowMultipleWindows,
+			assertionTimeout: opts.assertionTimeout,
+			debugMode: opts.debugMode,
+			debugOnFail: opts.debugOnFail,
+			pageLoadTimeout: opts.pageLoadTimeout,
+			quarantineMode: opts.quarantineMode,
+			selectorTimeout: opts.selectorTimeout,
+			skipJsErrors: opts.skipJsErrors,
+			skipUncaughtErrors: opts.skipUncaughtErrors,
+			speed: opts.speed,
+			stopOnFirstFail: opts.stopOnFirstFail,
+		});
 }
 
 async function execute(
