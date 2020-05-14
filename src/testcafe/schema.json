@@ -41,6 +41,14 @@
                   "module": {
                     "type": "string",
                     "description": "Node module"
+                  },
+                  "path": {
+                    "type": "string",
+                    "description": "path to script"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "code to inject"
                   }
                 }
               }
@@ -54,6 +62,14 @@
             "module": {
               "type": "string",
               "description": "Node module"
+            },
+            "path": {
+              "type": "string",
+              "description": "path to script"
+            },
+            "content": {
+              "type": "string",
+              "description": "code to inject"
             }
           }
         }

@@ -2,7 +2,7 @@ export interface TestcafeBuilderOptions {
     allowMultipleWindows?: boolean;
     assertionTimeout?: number;
     browsers?: string[]; // default in schema.json
-    clientScripts?: string | string[] | ClientScriptModule | ClientScriptModule[]; 
+    clientScripts?: string | string[] | ClientScript | ClientScript[]; 
     color?: boolean;
     concurrency?: number;
     debugMode?: boolean;
@@ -39,7 +39,11 @@ export interface TestcafeBuilderOptions {
     video?: Videos
 }
 
-type ClientScriptModule = { module: string };
+export interface ClientScript {
+    module?: string;
+    path?: string;
+    content?: string;
+}
 export interface Reporter {
     name: string,
     output?: string;
