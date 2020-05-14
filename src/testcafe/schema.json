@@ -15,7 +15,9 @@
         "type": "string",
         "description": "name of the browser including arguments"
       },
-      "default": ["chrome"]
+      "default": [
+        "chrome"
+      ]
     },
     "clientScripts": {
       "description": "[TestCafe] Scripts to inject into the tested pages",
@@ -27,8 +29,32 @@
         {
           "type": "array",
           "items": {
-            "type": "string",
-            "description": "Scripts to inject into the tested pages"
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Scripts to inject into the tested pages"
+              },
+              {
+                "type": "object",
+                "description": "Scripts to inject into the tested pages",
+                "properties": {
+                  "module": {
+                    "type": "string",
+                    "description": "Node module"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "object",
+          "description": "Scripts to inject into the tested pages",
+          "properties": {
+            "module": {
+              "type": "string",
+              "description": "Node module"
+            }
           }
         }
       ]
@@ -130,7 +156,11 @@
         "type": "object",
         "description": "reporters"
       },
-      "default": [{ "name": "spec" }]
+      "default": [
+        {
+          "name": "spec"
+        }
+      ]
     },
     "screenshots": {
       "type": "object",
@@ -209,6 +239,33 @@
     "tsConfigPath": {
       "type": "string",
       "description": "[TestCafe] Specifies the TypeScript configuration file location"
+    },
+    "video": {
+      "type": "object",
+      "description": "[TestCafe] video options",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "enable screenshot capturing and specify the path to save the screenshots to"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "takeOnFails": {
+              "type": "boolean",
+              "description": "take a video whenever a test fails"
+            },
+            "pathPattern": {
+              "type": "string",
+              "description": "use patterns to compose screenshot file names and paths: ${BROWSER}, ${BROWSER_VERSION}, ${OS}, etc."
+            }
+          },
+          "encodingOptions": {
+            "type": "object",
+            "description": "FFMPEG encoding options (see testcafe docs for more details)"
+          }
+        }
+      }
     }
   },
   "additionalProperties": false,

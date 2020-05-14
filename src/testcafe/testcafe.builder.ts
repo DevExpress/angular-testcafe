@@ -34,6 +34,7 @@ async function runTestcafe(opts: TestcafeBuilderOptions, hostName) {
 		.src(opts.src instanceof Array ? opts.src : [ opts.src ])
 		.tsConfigPath(opts.tsConfigPath)
 		.browsers(opts.browsers)
+		.clientScripts(opts.clientScripts || [])
 		.reporter(opts.reporters)
 		.concurrency(opts.concurrency || 1)
 		.filter((testName, fixtureName, fixturePath, testMeta, fixtureMeta) => {
@@ -55,6 +56,7 @@ async function runTestcafe(opts: TestcafeBuilderOptions, hostName) {
 			return true;
 		})
 		.screenshots(opts.screenshots)
+		.video(opts.video.path, opts.video.options, opts.video.encodingOptions)
 		.run({
 			allowMultipleWindows: opts.allowMultipleWindows,
 			assertionTimeout: opts.assertionTimeout,

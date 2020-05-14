@@ -2,7 +2,7 @@ export interface TestcafeBuilderOptions {
     allowMultipleWindows?: boolean;
     assertionTimeout?: number;
     browsers?: string[]; // default in schema.json
-    clientScripts?: string | string[]; //doesn't do anything yet
+    clientScripts?: string | string[] | ClientScriptModule | ClientScriptModule[]; 
     color?: boolean;
     concurrency?: number;
     debugMode?: boolean;
@@ -36,8 +36,10 @@ export interface TestcafeBuilderOptions {
     testGrep?: string;
     testMeta?: object;
     tsConfigPath?: string;
+    video?: Videos
 }
 
+type ClientScriptModule = { module: string };
 export interface Reporter {
     name: string,
     output?: string;
@@ -49,3 +51,17 @@ export interface Screenshots {
     pathPattern?: string;
     fullPage?: boolean;
 }
+
+export interface Videos {
+    path?: string;
+    options?: VideoOptions;
+    encodingOptions?: any; // this one is super hairy and is defined by FFMPeg
+}
+
+export interface VideoOptions {
+    failedOnly?: boolean;
+    singleFile?: boolean;
+    ffmpegPath?: string;
+    pathPattern?: string;
+}
+

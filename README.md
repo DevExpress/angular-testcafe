@@ -20,7 +20,18 @@ $ npm install --save-dev @politie/angular-testcafe-builder
               "chrome --no-sandbox",
               "firefox"
             ],
+            "clientScripts":{"module":"@testing-library/dom/dist/@testing-library/dom.umd.js"},
             "src": ["e2e/*.e2e-spec.ts"],
+            "video":{
+              "path":"artifacts",
+              "options":{
+                "pathPattern":"${TEST}/${USERAGENT}/${FILE_INDEX}.mp4"
+              },
+              "encodingOptions":{
+                "r": 20,
+                "aspect": "4:3"
+              }
+            }
             "reporters": [
               {
                 "name": "html",
@@ -54,6 +65,4 @@ $ npm pack
 ## NOT Implemented (TODO):
 * remote browsers
 * QR code
-* video
 * ssl
-* clientScripts
