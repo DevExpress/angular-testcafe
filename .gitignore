@@ -67,3 +67,7 @@ typings/
 # Jetbrains
 .idea/
 *.iml
+
+# Target
+demo-app/target/
+testcafe.builder.d.ts
