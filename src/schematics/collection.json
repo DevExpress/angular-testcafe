@@ -1,0 +1,9 @@
+{
+  "$schema": "@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Adds TestCafe to an existing Angular CLI project.",
+      "factory": "./testcafe/index#testcafeSchematics"
+    }
+  }
+}

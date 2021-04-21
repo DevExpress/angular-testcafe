@@ -27,6 +27,7 @@
     "url": "https://github.com/politie/angular-testcafe/issues"
   },
   "builders": "builders.json",
+  "schematics": "schematics/collection.json",
   "homepage": "https://github.com/politie/angular-testcafe#readme",
   "devDependencies": {
     "@angular-devkit/architect": "0.1000.6",
@@ -43,6 +44,7 @@
     "@angular/core": ">=10.0.0"
   },
   "dependencies": {
+    "@angular-devkit/schematics": "^11.2.9",
     "lodash": "4.17.20"
   }
 }
