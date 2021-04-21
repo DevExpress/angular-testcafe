@@ -57,3 +57,11 @@ $ npm pack
 * video
 * ssl
 * clientScripts
+
+## Contributors
+
+Originally created at [Dutch National Police](https://www.politie.nl) by
+* [Tim Nederhoff](https://github.com/timnederhoff) (main author)
+* [Peter de Beijer](https://github.com/peterdebeijer)
+* [Richard Kettelerij](https://github.com/rkettelerij)
+* [Bjorn Schijff](https://github.com/bjeaurn)
