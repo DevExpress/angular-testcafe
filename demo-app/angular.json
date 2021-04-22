@@ -113,7 +113,7 @@
           "builder": "@politie/angular-testcafe-builder:testcafe",
           "options": {
             "browsers": [
-              "chrome --no-sandbox --window-size=1920,1080"
+              "chrome:headless --no-sandbox --window-size=1920,1080"
             ],
             "screenshots": {
               "path": "./target/testreport/screenshots",
