@@ -34,7 +34,7 @@ export interface TestcafeBuilderOptions {
     stopOnFirstFail?: boolean;
     test?: string;
     testGrep?: string;
-    testMeta?: objecRecord<string, string>;
+    testMeta?: Record<string, string>;
     tsConfigPath?: string;
 }
 
