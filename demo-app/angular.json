@@ -138,18 +138,28 @@
             },
             "failing": {
               "devServerTarget": "demo-app:serve:stubbed",
-              "src": ["e2e/failing.e2e-spec.ts"]
+              "src": [
+                "e2e/failing.e2e-spec.ts"
+              ]
             },
-            "error": {"devServerTarget": "demo-app:serve:stubbed",
-              "src": ["my/invalid/path-to-src"]
+            "error": {
+              "devServerTarget": "demo-app:serve:stubbed",
+              "src": [
+                "my/invalid/path-to-src"
+              ]
             },
             "externalsite": {
-              "src": ["e2e/externalsite.e2e-spec.ts"]
+              "src": [
+                "e2e/externalsite.e2e-spec.ts"
+              ]
             }
           }
         }
       }
     }
   },
-  "defaultProject": "demo-app"
+  "defaultProject": "demo-app",
+  "cli": {
+    "analytics": "81720ced-1ea8-4893-afd9-e20c7ac18b10"
+  }
 }

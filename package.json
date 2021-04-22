@@ -1,16 +1,18 @@
 {
-  "name": "@politie/angular-testcafe-builder",
-  "version": "2.0.5",
+  "name": "angular-testcafe",
+  "version": "1.0.0",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "e2e": "cd demo-app && npm install && npm run e2e"
+    "lint": "eslint demo-app src",
+    "e2e": "cd demo-app && npm install && npm run e2e",
+    "prepare": "npm run build",
+    "test": "npm run lint && npm run e2e"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/politie/angular-testcafe.git"
+    "url": "git+https://github.com/DevExpress/angular-testcafe.git"
   },
   "typings": "typings",
   "keywords": [
@@ -21,7 +23,28 @@
     "runner",
     "e2e"
   ],
-  "author": "Tim Nederhoff",
+  "author": {
+    "name": "Developer Express Inc.",
+    "url": "https://www.devexpress.com/"
+  },
+  "contributors": [
+    {
+      "name": "Tim Nederhoff (original author)",
+      "url": "https://github.com/timnederhoff"
+    },
+    {
+      "name": "Peter de Beijer",
+      "url": "https://github.com/peterdebeijer"
+    },
+    {
+      "name": "Richard Kettelerij",
+      "url": "https://github.com/rkettelerij"
+    },
+    {
+      "name": "Bjorn Schijff",
+      "url": "https://github.com/bjeaurn"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/politie/angular-testcafe/issues"
@@ -30,9 +53,12 @@
   "homepage": "https://github.com/politie/angular-testcafe#readme",
   "devDependencies": {
     "@angular-devkit/architect": "0.1000.6",
-    "@angular-devkit/build-angular": "0.1000.6",
+    "@angular-devkit/build-angular": "^0.1102.10",
     "@angular-devkit/core": "10.0.6",
     "@types/node": "^12.12.54",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.24.0",
     "testcafe": "1.9.1",
     "testcafe-reporter-html": "^1.4.6",
     "ts-node": "^8.10.2",
@@ -43,6 +69,6 @@
     "@angular/core": ">=10.0.0"
   },
   "dependencies": {
-    "lodash": "4.17.20"
+    "lodash": "4.17.21"
   }
 }

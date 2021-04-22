@@ -4,7 +4,7 @@ Serves the Angular application, and then runs the TestCafe tests.
 
 ## Install
 ```bash
-$ npm install --save-dev @politie/angular-testcafe-builder
+$ npm install --save-dev angular-testcafe
 ```
 
 ## Use in angular.json
@@ -14,7 +14,7 @@ $ npm install --save-dev @politie/angular-testcafe-builder
     "my-project-e2e": {
       "architect": {
         "e2e": {
-          "builder": "@politie/angular-testcafe-builder:testcafe",
+          "builder": "angular-testcafe",
           "options": {
             "browsers": [
               "chrome --no-sandbox",
@@ -65,3 +65,5 @@ Originally created at [Dutch National Police](https://www.politie.nl) by
 * [Peter de Beijer](https://github.com/peterdebeijer)
 * [Richard Kettelerij](https://github.com/rkettelerij)
 * [Bjorn Schijff](https://github.com/bjeaurn)
+
+Developer Express Inc. ([https://devexpress.com](https://devexpress.com))
