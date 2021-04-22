@@ -59,7 +59,6 @@ $ npm pack
 * clientScripts
 
 ## Contributors
-
 Originally created at [Dutch National Police](https://www.politie.nl) by
 * [Tim Nederhoff](https://github.com/timnederhoff) (main author)
 * [Peter de Beijer](https://github.com/peterdebeijer)
