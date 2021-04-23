@@ -1,4 +1,4 @@
-# angular-testcafe [![Build Status](https://travis-ci.org/politie/angular-testcafe.svg?branch=master)](https://travis-ci.org/politie/angular-testcafe)
+# angular-testcafe [![Tests - E2E](https://github.com/DevExpress/angular-testcafe/actions/workflows/test-e2e.yml/badge.svg)](https://github.com/DevExpress/angular-testcafe/actions/workflows/test-e2e.yml)
 A custom Angular builder for [TestCafe](http://devexpress.github.io/testcafe/).
 Serves the Angular application, and then runs the TestCafe tests.
 
