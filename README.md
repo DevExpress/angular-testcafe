@@ -1,6 +1,12 @@
 # angular-testcafe [![Tests - E2E](https://github.com/DevExpress/angular-testcafe/actions/workflows/test-e2e.yml/badge.svg)](https://github.com/DevExpress/angular-testcafe/actions/workflows/test-e2e.yml)
+
 A custom Angular builder for [TestCafe](http://devexpress.github.io/testcafe/).
 Serves the Angular application, and then runs the TestCafe tests.
+
+# ⚠️**angular-testcafe supersedes @politie/angular-testcafe-builder**⚠️
+Original [@politie/angular-testcafe-builder](https://www.npmjs.com/package/@politie/angular-testcafe-builder) authors (Dutch National Police and Tim Nederhoff in person) have transfered repository and related code, assets and rights to the DevExpress. It means that now it is officially maintained and supported under the name [angular-testcafe](https://www.npmjs.com/package/angular-testcafe) by original TestCafe authors - the TestCafe team. 
+
+If you are still using [@politie/angular-testcafe-builder](https://www.npmjs.com/package/@politie/angular-testcafe-builder), it's strongly advised to switch your project to use [angular-testcafe](https://www.npmjs.com/package/angular-testcafe) instead. The development of [@politie/angular-testcafe-builder](https://www.npmjs.com/package/@politie/angular-testcafe-builder) is discontinued. It won't receive any updates, even for critical bugs and security vulnerabilities.
 
 ## Install
 ```bash
