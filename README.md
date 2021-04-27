@@ -1,10 +1,16 @@
-# angular-testcafe [![Build Status](https://travis-ci.org/politie/angular-testcafe.svg?branch=master)](https://travis-ci.org/politie/angular-testcafe)
+# angular-testcafe [![Tests - E2E](https://github.com/DevExpress/angular-testcafe/actions/workflows/test-e2e.yml/badge.svg)](https://github.com/DevExpress/angular-testcafe/actions/workflows/test-e2e.yml)
+
 A custom Angular builder for [TestCafe](http://devexpress.github.io/testcafe/).
 Serves the Angular application, and then runs the TestCafe tests.
 
+# ⚠️**angular-testcafe supersedes @politie/angular-testcafe-builder**⚠️
+[@politie/angular-testcafe-builder](https://www.npmjs.com/package/@politie/angular-testcafe-builder) authors (Dutch National Police and Tim Nederhoff in person) have transferred the repository, related code, assets, and rights to DevExpress. The TestCafe team maintains and supports the package under the new name [angular-testcafe](https://www.npmjs.com/package/angular-testcafe). 
+
+If your projects are still using [@politie/angular-testcafe-builder](https://www.npmjs.com/package/@politie/angular-testcafe-builder), we recommend that you switch to [angular-testcafe](https://www.npmjs.com/package/angular-testcafe). The development of [@politie/angular-testcafe-builder](https://www.npmjs.com/package/@politie/angular-testcafe-builder) is discontinued: it won't receive any updates, even for critical bugs and security vulnerabilities.
+
 ## Install
 ```bash
-$ npm install --save-dev @politie/angular-testcafe-builder
+$ npm install --save-dev angular-testcafe
 ```
 
 ## Use in angular.json
@@ -14,7 +20,7 @@ $ npm install --save-dev @politie/angular-testcafe-builder
     "my-project-e2e": {
       "architect": {
         "e2e": {
-          "builder": "@politie/angular-testcafe-builder:testcafe",
+          "builder": "angular-testcafe",
           "options": {
             "browsers": [
               "chrome --no-sandbox",
@@ -65,3 +71,5 @@ Originally created at [Dutch National Police](https://www.politie.nl) by
 * [Peter de Beijer](https://github.com/peterdebeijer)
 * [Richard Kettelerij](https://github.com/rkettelerij)
 * [Bjorn Schijff](https://github.com/bjeaurn)
+
+Developer Express Inc. ([https://devexpress.com](https://devexpress.com))

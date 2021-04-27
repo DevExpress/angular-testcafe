@@ -113,7 +113,7 @@
           "builder": "@politie/angular-testcafe-builder:testcafe",
           "options": {
             "browsers": [
-              "chrome --no-sandbox --window-size=1920,1080"
+              "chrome:headless --no-sandbox --window-size=1920,1080"
             ],
             "screenshots": {
               "path": "./target/testreport/screenshots",
@@ -138,18 +138,28 @@
             },
             "failing": {
               "devServerTarget": "demo-app:serve:stubbed",
-              "src": ["e2e/failing.e2e-spec.ts"]
+              "src": [
+                "e2e/failing.e2e-spec.ts"
+              ]
             },
-            "error": {"devServerTarget": "demo-app:serve:stubbed",
-              "src": ["my/invalid/path-to-src"]
+            "error": {
+              "devServerTarget": "demo-app:serve:stubbed",
+              "src": [
+                "my/invalid/path-to-src"
+              ]
             },
             "externalsite": {
-              "src": ["e2e/externalsite.e2e-spec.ts"]
+              "src": [
+                "e2e/externalsite.e2e-spec.ts"
+              ]
             }
           }
         }
       }
     }
   },
-  "defaultProject": "demo-app"
+  "defaultProject": "demo-app",
+  "cli": {
+    "analytics": false
+  }
 }

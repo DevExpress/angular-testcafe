@@ -14,7 +14,7 @@ export interface TestcafeBuilderOptions {
     disableTestSyntaxValidation?: boolean;
     fixture?: string;
     fixtureGrep?: string;
-    fixtureMeta?: object;
+    fixtureMeta?: Record<string, string>;
     host?: string; // default in schema.json
     live?: boolean; // default in schema.json
     NoColor?: boolean;
@@ -34,7 +34,7 @@ export interface TestcafeBuilderOptions {
     stopOnFirstFail?: boolean;
     test?: string;
     testGrep?: string;
-    testMeta?: object;
+    testMeta?: Record<string, string>;
     tsConfigPath?: string;
 }
 
