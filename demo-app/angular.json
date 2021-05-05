@@ -110,7 +110,7 @@
           }
         },
         "e2e": {
-          "builder": "@politie/angular-testcafe-builder:testcafe",
+          "builder": "angular-testcafe:testcafe",
           "options": {
             "browsers": [
               "chrome:headless --no-sandbox --window-size=1920,1080"

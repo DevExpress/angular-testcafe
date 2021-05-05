@@ -20,7 +20,7 @@ $ npm install --save-dev angular-testcafe
     "my-project-e2e": {
       "architect": {
         "e2e": {
-          "builder": "angular-testcafe",
+          "builder": "angular-testcafe:testcafe",
           "options": {
             "browsers": [
               "chrome --no-sandbox",
