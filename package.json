@@ -1,5 +1,5 @@
 {
-  "name": "angular-testcafe",
+  "name": "angular-testcafe-sword",
   "version": "2.0.6",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevExpress/angular-testcafe.git"
+    "url": "git+https://github.com/Brian-Courtois/angular-testcafe.git"
   },
   "typings": "typings",
   "keywords": [
