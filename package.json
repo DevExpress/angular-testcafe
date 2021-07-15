@@ -1,6 +1,6 @@
 {
   "name": "angular-testcafe-sword",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
