@@ -209,6 +209,10 @@
     "tsConfigPath": {
       "type": "string",
       "description": "[TestCafe] Specifies the TypeScript configuration file location"
+    },
+    "pageRequestTimeout": {
+      "type": "number",
+      "description": "[TestCafe] sets the timeout for webpage requests"
     }
   },
   "additionalProperties": false,

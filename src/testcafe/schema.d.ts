@@ -36,10 +36,11 @@ export interface TestcafeBuilderOptions {
     testGrep?: string;
     testMeta?: Record<string, string>;
     tsConfigPath?: string;
+    pageRequestTimeout?: number;
 }
 
 export interface Reporter {
-    name: string,
+    name: string;
     output?: string;
 }
 

@@ -67,6 +67,7 @@ async function runTestcafe (opts: TestcafeBuilderOptions, hostName): Promise<unk
             skipUncaughtErrors:   opts.skipUncaughtErrors,
             speed:                opts.speed,
             stopOnFirstFail:      opts.stopOnFirstFail,
+            pageRequestTimeout:   opts.pageRequestTimeout,
         });
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "angular-testcafe",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
@@ -43,6 +43,10 @@
     {
       "name": "Bjorn Schijff",
       "url": "https://github.com/bjeaurn"
+    },
+    {
+      "name": "Brian Courtois",
+      "url": "https://github.com/Brian-Courtois"
     }
   ],
   "license": "MIT",
