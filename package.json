@@ -56,9 +56,9 @@
   "builders": "builders.json",
   "homepage": "https://github.com/devexpress/angular-testcafe#readme",
   "devDependencies": {
-    "@angular-devkit/architect": "0.1000.6",
-    "@angular-devkit/build-angular": "^0.1102.10",
-    "@angular-devkit/core": "10.0.6",
+    "@angular-devkit/architect": "^0.1202.6",
+    "@angular-devkit/build-angular": "^12.2.6",
+    "@angular-devkit/core": "^12.2.6",
     "@types/node": "^12.12.54",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
