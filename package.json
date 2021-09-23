@@ -56,17 +56,17 @@
   "builders": "builders.json",
   "homepage": "https://github.com/devexpress/angular-testcafe#readme",
   "devDependencies": {
-    "@angular-devkit/architect": "0.1000.6",
-    "@angular-devkit/build-angular": "^0.1102.10",
-    "@angular-devkit/core": "10.0.6",
-    "@types/node": "^12.12.54",
+    "@angular-devkit/architect": "^0.1202.6",
+    "@angular-devkit/build-angular": "^12.2.6",
+    "@angular-devkit/core": "^12.2.6",
+    "@types/node": "^16.9.6",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.24.0",
-    "testcafe": "1.14.0",
+    "testcafe": "1.16.0",
     "testcafe-reporter-html": "^1.4.6",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3"
   },
   "peerDependencies": {
     "testcafe": ">=1.9.0",
