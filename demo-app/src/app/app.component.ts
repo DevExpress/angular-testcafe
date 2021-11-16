@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 
-const opts = {
-    selector:    'app-root',
+@Component({
+    selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls:   ['./app.component.css']
-};
-
-@Component(opts)
+    styleUrls: ['./app.component.css']
+})
 
 export class AppComponent {
   title = 'demo-app';
