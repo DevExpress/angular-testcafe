@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint demo-app src",
-    "e2e": "cd demo-app && npm i --force && npm run e2e",
+    "e2e": "cd demo-app && npm run e2e",
     "prepare": "npm run build",
     "test": "npm run lint && npm run e2e"
   },
