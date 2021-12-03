@@ -102,10 +102,11 @@ async function execute (
         return { success: true };
 
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    catch (e: any) {
-        console.error('Testcafe run failed!!! error:', e);
-        return { success: false, error: e.message };
+    catch (e) {
+        const message = e instanceof Error ? e.message : 'Testcafe run failed!';
+
+        console.error('Testcafe run failed!!! error:', message);
+        return { success: false, error: message };
     }
     finally {
         if (server)
