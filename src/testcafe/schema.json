@@ -1,5 +1,5 @@
 {
-  "id": "TestcafeBuilderOptions",
+  "id$": "TestcafeBuilderOptions",
   "title": "TestCafe builder",
   "description": "TestCafe builder options",
   "type": "object",

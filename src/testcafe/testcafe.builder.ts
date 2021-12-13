@@ -103,8 +103,10 @@ async function execute (
 
     }
     catch (e) {
-        console.error('Testcafe run failed!!! error:', e);
-        return { success: false, error: e.message };
+        const message = e instanceof Error ? e.message : 'Testcafe run failed!';
+
+        console.error('Testcafe run failed!!! error:', message);
+        return { success: false, error: message };
     }
     finally {
         if (server)

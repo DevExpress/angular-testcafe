@@ -1,12 +1,12 @@
 {
   "name": "angular-testcafe",
-  "version": "2.0.8",
+  "version": "3.0.0",
   "description": "Angular builder for Testcafe",
   "main": "src/testcafe/testcafe.builder.js",
   "scripts": {
     "build": "tsc",
     "lint": "eslint demo-app src",
-    "e2e": "cd demo-app && npm i --force && npm run e2e",
+    "e2e": "cd demo-app && npm run e2e",
     "prepare": "npm run build",
     "test": "npm run lint && npm run e2e"
   },
@@ -70,7 +70,7 @@
   },
   "peerDependencies": {
     "testcafe": ">=1.9.0",
-    "@angular/core": ">=10.0.0"
+    "@angular/core": ">=13.0.0"
   },
   "dependencies": {
     "lodash": "4.17.21"
