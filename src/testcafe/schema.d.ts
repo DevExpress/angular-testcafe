@@ -2,7 +2,7 @@ export interface TestcafeBuilderOptions {
     allowMultipleWindows?: boolean;
     assertionTimeout?: number;
     browsers?: string[]; // default in schema.json
-    clientScripts?: string | string[]; //doesn't do anything yet
+    clientScripts?: string | string[];
     color?: boolean;
     concurrency?: number;
     debugMode?: boolean;
