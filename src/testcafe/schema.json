@@ -120,8 +120,16 @@
       }
     },
     "quarantineMode": {
-      "type": "boolean",
-      "description": "[TestCafe] enable the quarantine mode"
+      "oneOf": [ 
+        {
+          "type": "boolean",
+          "description": "[TestCafe] enable the quarantine mode"
+        },
+        {
+          "type": "object",
+          "description": "[TestCafe] enable quarantine mode while making it possible to specify successThreshold (default 3) and attemptLimit (default 5). AttemptLimit must be bigger than successThreshold."
+        }
+      ]
     },
     "reporters": {
       "type": "array",
