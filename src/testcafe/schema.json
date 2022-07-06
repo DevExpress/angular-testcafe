@@ -127,7 +127,7 @@
         },
         {
           "type": "object",
-          "description": "[TestCafe] enable quarantine mode while making it possible to specify successThreshold (default 3) and attemptLimit (default 5). AttemptLimit must be bigger than successThreshold."
+          "description": "[TestCafe] enable the quarantine mode and configure the following quarantine mode settings: successThreshold (default: 3), attemptLimit (default: 5). The value of the AttemptLimit parameter must be greater than the value of the successThreshold parameter."
         }
       ]
     },
