@@ -22,7 +22,7 @@ export interface TestcafeBuilderOptions {
     ports?: number[]; // testcafe ports
     proxy?: string;
     proxyBypass?: string[];
-    quarantineMode?: boolean;
+    quarantineMode?: boolean | object;
     reporters?: Reporter[]; // default in schema.json
     screenshots?: Screenshots;
     selectorTimeout?: number;
