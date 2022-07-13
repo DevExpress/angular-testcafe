@@ -1,8 +1,9 @@
+/// <reference types="testcafe" />
 export interface TestcafeBuilderOptions {
     allowMultipleWindows?: boolean;
     assertionTimeout?: number;
     browsers?: string[]; // default in schema.json
-    clientScripts?: string | string[];
+    clientScripts?: ClientScriptOptions;
     color?: boolean;
     concurrency?: number;
     debugMode?: boolean;
