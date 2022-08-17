@@ -38,6 +38,7 @@ export interface TestcafeBuilderOptions {
     testMeta?: Record<string, string>;
     tsConfigPath?: string;
     pageRequestTimeout?: number;
+    compilerOptions?: CompilerOptions;
 }
 
 export interface Reporter {
@@ -50,4 +51,13 @@ export interface Screenshots {
     takeOnFails?: boolean;
     pathPattern?: string;
     fullPage?: boolean;
+}
+
+interface CompilerOptions {
+    typescript: TypescriptCompilerOptions
+}
+
+interface TypescriptCompilerOptions {
+    customCompilerModulePath?: string;
+    configPath?: string;
 }

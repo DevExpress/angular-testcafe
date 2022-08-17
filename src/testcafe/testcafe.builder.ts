@@ -35,6 +35,7 @@ async function runTestcafe (opts: TestcafeBuilderOptions, hostName): Promise<unk
         .tsConfigPath(opts.tsConfigPath)
         .browsers(opts.browsers)
         .clientScripts(opts.clientScripts || [])
+        .compilerOptions(opts.compilerOptions)
         .reporter(opts.reporters)
         .concurrency(opts.concurrency || 1)
         .filter((testName, fixtureName, fixturePath, testMeta, fixtureMeta) => {

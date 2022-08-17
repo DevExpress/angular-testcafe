@@ -162,6 +162,26 @@
         }
       }
     },
+    "compilerOptions": {
+      "type": "object",
+      "description": "[TestCafe] Compiler options",
+      "properties": {
+        "typescript": {
+          "type": "object",
+          "description": "[TestCafe] Typescript compiler options",
+          "properties": {
+            "customCompilerModulePath": {
+              "type": "string",
+              "description": "specify the path to the module that exports the compiler"
+            },
+            "configPath": {
+              "type": "string",
+              "description": "specify the path to the TypeScript configuration file"
+            }
+          }
+        }
+      }
+    },
     "selectorTimeout": {
       "type": "number",
       "description": "[TestCafe] set the amount of time within which selectors make attempts to obtain a node to be returned"
