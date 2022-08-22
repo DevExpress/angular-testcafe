@@ -8,6 +8,7 @@ on:
 
 jobs:
   reaction:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - uses: dessant/label-actions@v2
