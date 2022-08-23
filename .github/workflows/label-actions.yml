@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: dessant/label-actions@v2
         with:
-          token: ${{ secrets.LABELER_TOKEN }}
+          github-token: ${{ secrets.LABELER_TOKEN }}
