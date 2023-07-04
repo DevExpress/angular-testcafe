@@ -8,9 +8,7 @@
     "lint": "eslint demo-app src",
     "e2e": "cd demo-app && npm run e2e",
     "prepare": "npm run build",
-    "test": "npm run lint && npm run e2e",
-    "publish-please": "publish-please",
-    "prepublishOnly": "publish-please guard"
+    "test": "npm run lint && npm run e2e"
   },
   "repository": {
     "type": "git",
@@ -62,14 +60,14 @@
     "@angular-devkit/build-angular": "^13.3.7",
     "@angular-devkit/core": "^12.2.6",
     "@types/node": "^16.9.6",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "eslint": "^7.24.0",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
+    "publish-please": "^5.5.2",
     "testcafe": "^2.3.1",
     "testcafe-reporter-html": "^1.4.6",
     "ts-node": "^10.2.1",
-    "typescript": "^4.3",
-    "publish-please": "^5.5.2"
+    "typescript": "^4.3"
   },
   "peerDependencies": {
     "@angular/core": ">=13.0.0",
@@ -77,5 +75,9 @@
   },
   "dependencies": {
     "lodash": "4.17.21"
+  },
+  "overrides": {
+    "lodash": "4.17.21",
+    "semver": "7.5.3"
   }
 }
