@@ -1,7 +1,8 @@
 /// <reference types="testcafe" />
 export interface TestcafeBuilderOptions {
-    allowMultipleWindows?: boolean;
     assertionTimeout?: number;
+    ajaxRequestTimeout?: number;
+    browserInitTimeout?: number;
     browsers?: string[]; // default in schema.json
     clientScripts?: ClientScriptOptions;
     color?: boolean;
@@ -10,6 +11,9 @@ export interface TestcafeBuilderOptions {
     debugOnFail?: boolean;
     dev?: boolean;
     devServerTarget?: string; // set to run ng serve
+    disableMultipleWindows?: boolean;
+    disableNativeAutomation?: boolean;
+    disablePageCaching?: boolean;
     disablePageReloads?: boolean;
     disableScreenshots?: boolean;
     disableTestSyntaxValidation?: boolean;
@@ -20,6 +24,7 @@ export interface TestcafeBuilderOptions {
     live?: boolean; // default in schema.json
     NoColor?: boolean;
     pageLoadTimeout?: number;
+    pageRequestTimeout?: number;
     ports?: number[]; // testcafe ports
     proxy?: string;
     proxyBypass?: string[];
@@ -37,7 +42,6 @@ export interface TestcafeBuilderOptions {
     testGrep?: string;
     testMeta?: Record<string, string>;
     tsConfigPath?: string;
-    pageRequestTimeout?: number;
 }
 
 export interface Reporter {

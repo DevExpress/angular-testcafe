@@ -8,6 +8,14 @@
       "type": "number",
       "description": "[TestCafe] set the amount of time within which assertion should pass"
     },
+    "ajaxRequestTimeout": {
+      "type": "number",
+      "description": "[TestCafe] set the amount of time within which Fetch/XHR request should receive a response"
+    },
+    "browserInitTimeout": {
+      "type": "number",
+      "description": "[TestCafe] set the amount of time within which browsers should connect to TestCafe"
+    },
     "browsers": {
       "type": "array",
       "description": "[TestCafe] browsers to run the tests on",
@@ -57,6 +65,18 @@
       "type": "string",
       "description": "[Angular] Dev server target to run tests against."
     },
+    "disableMultipleWindows": {
+      "type": "boolean",
+      "description": "[TestCafe] disable separate browser windows during tests"
+    },
+    "disableNativeAutomation": {
+      "type": "boolean",
+      "description": "[TestCafe] disable native automation in favor of the TestCafe proxy"
+    },
+    "disablePageCaching": {
+      "type": "boolean",
+      "description": "[TestCafe] disable caching of page content"
+    },
     "disablePageReloads": {
       "type": "boolean",
       "description": "[TestCafe] disable page reloads between tests"
@@ -99,6 +119,10 @@
       "type": "number",
       "description": "[TestCafe] set the amount of time within which TestCafe waits for the `window.load` event to fire on page load before proceeding to the next test action"
     },
+    "pageRequestTimeout": {
+      "type": "number",
+      "description": "[TestCafe] set the timeout to wait for HTML pages"
+    },
     "ports": {
       "type": "array",
       "description": "[TestCafe] the ports to run TestCafe on",
@@ -120,7 +144,7 @@
       }
     },
     "quarantineMode": {
-      "oneOf": [ 
+      "oneOf": [
         {
           "type": "boolean",
           "description": "[TestCafe] enable the quarantine mode"
@@ -217,10 +241,6 @@
     "tsConfigPath": {
       "type": "string",
       "description": "[TestCafe] Specifies the TypeScript configuration file location"
-    },
-    "pageRequestTimeout": {
-      "type": "number",
-      "description": "[TestCafe] sets the timeout for webpage requests"
     }
   },
   "additionalProperties": false,

@@ -57,18 +57,24 @@ async function runTestcafe (opts: TestcafeBuilderOptions, hostName): Promise<unk
         })
         .screenshots(opts.screenshots)
         .run({
-            allowMultipleWindows: opts.allowMultipleWindows,
-            assertionTimeout:     opts.assertionTimeout,
-            debugMode:            opts.debugMode,
-            debugOnFail:          opts.debugOnFail,
-            pageLoadTimeout:      opts.pageLoadTimeout,
-            quarantineMode:       opts.quarantineMode,
-            selectorTimeout:      opts.selectorTimeout,
-            skipJsErrors:         opts.skipJsErrors,
-            skipUncaughtErrors:   opts.skipUncaughtErrors,
-            speed:                opts.speed,
-            stopOnFirstFail:      opts.stopOnFirstFail,
-            pageRequestTimeout:   opts.pageRequestTimeout,
+            assertionTimeout:        opts.assertionTimeout,
+            ajaxRequestTimeout:      opts.ajaxRequestTimeout,
+            browserInitTimeout:      opts.browserInitTimeout,
+            debugMode:               opts.debugMode,
+            debugOnFail:             opts.debugOnFail,
+            disableMultipleWindows:  opts.disableMultipleWindows,
+            disableNativeAutomation: opts.disableNativeAutomation,
+            disablePageCaching:      opts.disablePageCaching,
+            disablePageReloads:      opts.disablePageReloads,
+            disableScreenshots:      opts.disableScreenshots,
+            pageLoadTimeout:         opts.pageLoadTimeout,
+            pageRequestTimeout:      opts.pageRequestTimeout,
+            quarantineMode:          opts.quarantineMode,
+            selectorTimeout:         opts.selectorTimeout,
+            skipJsErrors:            opts.skipJsErrors,
+            skipUncaughtErrors:      opts.skipUncaughtErrors,
+            speed:                   opts.speed,
+            stopOnFirstFail:         opts.stopOnFirstFail
         });
 }
 
