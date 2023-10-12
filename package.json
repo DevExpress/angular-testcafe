@@ -59,7 +59,7 @@
   "homepage": "https://github.com/devexpress/angular-testcafe#readme",
   "devDependencies": {
     "@angular-devkit/architect": "^0.1202.6",
-    "@angular-devkit/build-angular": "^13.3.7",
+    "@angular-devkit/build-angular": "^16.2.5",
     "@angular-devkit/core": "^12.2.6",
     "@types/node": "^16.9.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
