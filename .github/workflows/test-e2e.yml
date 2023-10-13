@@ -11,12 +11,13 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: CI
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: DevExpress/testcafe-build-system/actions/prepare@main
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: npm i --force
+
+      - run: npm ci --force
       - run: cd demo-app && npm i --force && cd ..
       - run: npm run build --if-present
       - run: npm test
