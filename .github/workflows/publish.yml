@@ -14,9 +14,24 @@ jobs:
         with:
           node-version: 18
 
+      - run: npm ci --force
+
       - run: cd demo-app && npm i --force && cd ..
 
-      - uses: DevExpress/testcafe-build-system/actions/build-npm@main
+      - run: npm run build
+      
+      - shell: bash
+        run: |
+          mkdir .builds
+          npm pack --pack-destination .builds
+          npm pack -ws --pack-destination .builds || echo No workspaces
+            
+      - uses: actions/upload-artifact@v3
+        with:
+          name: npm
+          path: |
+            .builds/
+            package-lock.json
 
       - uses: DevExpress/testcafe-build-system/actions/login-npm@main
         with:
