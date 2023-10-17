@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: DevExpress/testcafe-build-system/actions/prepare@main
         with:
-          node-version: 16
+          node-version: 18
 
       - run: cd demo-app && npm i --force && cd ..
 
