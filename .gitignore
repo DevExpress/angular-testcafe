@@ -71,3 +71,4 @@ typings/
 # Target
 demo-app/target/
 testcafe.builder.d.ts
+.builds/
