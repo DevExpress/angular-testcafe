@@ -9,6 +9,11 @@ const LABELS = {
   security:   'security notification',
 };
 
+const ALERT_TYPES = {
+  dependabot: 'dependabot',
+  codeq:      'codeql',
+}
+
 class SecurityChecker {
   constructor (github, context, issueRepo) {
       this.github    = github;
@@ -64,17 +69,13 @@ class SecurityChecker {
 
   createAlertDictionary (existedIssues) {
       return existedIssues.reduce((res, issue) => {
-          const [, url, number] = issue.body.match(/Link:\s*(https.*?(\d+)$)/);
-          console.log(`${new Date()} -> file: security-checker.mjs:68 -> SecurityChecker -> returnexistedIssues.reduce -> url:`, url);
-          console.log(`${new Date()} -> file: security-checker.mjs:68 -> SecurityChecker -> returnexistedIssues.reduce -> number:`, number);
+          const [, repo] = issue.body.match(/Repository:\s*`(.*)`/);
+          const [, url, type, number] = issue.body.match(/Link:\s*(https:.*\/(dependabot|code-scanning)\/(\d+))/);
 
-          if (!url)
+          if (!url || repo !== this.context.repo)
               return res;
 
-          res[url] = {
-              issue, number,
-              isDependabot: url.includes('dependabot'),
-          };
+          res[url] = { issue, number, type };
 
           return res;
       }, {});
@@ -84,10 +85,8 @@ class SecurityChecker {
       for (const key in this.alertDictionary) {
           const alert = this.alertDictionary[key];
 
-          if (alert.isDependabot) {
-              console.log(`${new Date()} -> file: security-checker.mjs:87 -> SecurityChecker -> closeSpoiledIssues -> alert.number:`, alert.number);
+          if (alert.type === ALERT_TYPES.dependabot) {
               const isAlertOpened = await this.isDependabotAlertOpened(alert.number);
-              console.log(`${new Date()} -> file: security-checker.mjs:88 -> SecurityChecker -> closeSpoiledIssues -> isAlertOpened:`, isAlertOpened);
 
               if (isAlertOpened)
                   continue;
@@ -127,7 +126,7 @@ class SecurityChecker {
   }
 
   async createDependabotlIssues (dependabotAlerts) {
-      for (const alert of dependabotAlerts) {
+    for (const alert of dependabotAlerts) {
           if (!this.needCreateIssue(alert))
               return;
 
@@ -158,7 +157,7 @@ class SecurityChecker {
   }
 
   needCreateIssue (alert) {
-      return !this.alertDictionary[alert.html_url] && Date.now() - new Date(alert.created_at) <= 1000 * 60 * 60 * 24;;
+      return !this.alertDictionary[alert.html_url] && Date.now() - new Date(alert.created_at) <= 1000 * 60 * 60 * 24;
   }
 
   async createIssue ({ labels, originRepo, summary, description, link, issuePackage = '' }) {
