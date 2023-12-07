@@ -65,6 +65,8 @@ class SecurityChecker {
   createAlertDictionary (existedIssues) {
       return existedIssues.reduce((res, issue) => {
           const [, url, number] = issue.body.match(/Link:\s*(https.*?(\d+)$)/);
+          console.log(`${new Date()} -> file: security-checker.mjs:68 -> SecurityChecker -> returnexistedIssues.reduce -> url:`, url);
+          console.log(`${new Date()} -> file: security-checker.mjs:68 -> SecurityChecker -> returnexistedIssues.reduce -> number:`, number);
 
           if (!url)
               return res;
@@ -83,7 +85,9 @@ class SecurityChecker {
           const alert = this.alertDictionary[key];
 
           if (alert.isDependabot) {
+              console.log(`${new Date()} -> file: security-checker.mjs:87 -> SecurityChecker -> closeSpoiledIssues -> alert.number:`, alert.number);
               const isAlertOpened = await this.isDependabotAlertOpened(alert.number);
+              console.log(`${new Date()} -> file: security-checker.mjs:88 -> SecurityChecker -> closeSpoiledIssues -> isAlertOpened:`, isAlertOpened);
 
               if (isAlertOpened)
                   continue;
