@@ -99,7 +99,7 @@ async function execute (
 
         const failedCount = await runTests(testCafe, options);
 
-        if (failedCount > 0)
+        if (typeof failedCount === 'number' && failedCount > 0)
             return { success: false };
 
         return { success: true };
