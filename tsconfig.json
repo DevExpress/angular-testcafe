@@ -20,6 +20,7 @@
   },
   "exclude": [
     "node_modules",
+    "demo-app"
   ],
   "compileOnSave": false,
   "buildOnSave": false
