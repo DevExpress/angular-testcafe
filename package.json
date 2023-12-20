@@ -64,7 +64,6 @@
     "@types/node": "^16.9.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
-    "angular-testcafe": "^4.0.0",
     "eslint": "^8.44.0",
     "publish-please": "^5.5.2",
     "testcafe": "^3.3.0",
