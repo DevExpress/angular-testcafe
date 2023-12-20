@@ -64,24 +64,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-app:build",
             "host": "localhost",
-            "port": 4200
+            "port": 4200,
+            "buildTarget": "demo-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo-app:build:production"
+              "buildTarget": "demo-app:build:production"
             },
             "stubbed": {
-              "browserTarget": "demo-app:build",
-              "publicHost": "localhost:4200"
+              "publicHost": "localhost:4200",
+              "buildTarget": "demo-app:build"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-app:build"
+            "buildTarget": "demo-app:build"
           }
         },
         "test": {
