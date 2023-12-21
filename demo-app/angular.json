@@ -64,17 +64,17 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "buildTarget": "demo-app:build",
             "host": "localhost",
-            "port": 4200,
-            "buildTarget": "demo-app:build"
+            "port": 4200
           },
           "configurations": {
             "production": {
               "buildTarget": "demo-app:build:production"
             },
             "stubbed": {
-              "publicHost": "localhost:4200",
-              "buildTarget": "demo-app:build"
+              "buildTarget": "demo-app:build",
+              "publicHost": "localhost:4200"
             }
           }
         },
