@@ -80,6 +80,7 @@
   },
   "overrides": {
     "lodash": "4.17.21",
-    "semver": "7.5.3"
+    "semver": "7.5.3",
+    "axios": "1.6.2"
   }
 }
