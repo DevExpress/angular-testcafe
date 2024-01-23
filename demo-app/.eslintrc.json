@@ -12,6 +12,7 @@
         "project": [
           "tsconfig.json"
         ],
+        "tsconfigRootDir": "demo-app",
         "createDefaultProgram": true
       },
       "extends": [
