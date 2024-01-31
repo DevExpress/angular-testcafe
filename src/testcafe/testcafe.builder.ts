@@ -9,7 +9,7 @@ import { TestcafeBuilderOptions } from './schema';
 import { isMatch } from 'lodash';
 const createTestCafe = require('testcafe');
 
-async function runTests (testCafe, opts: TestcafeBuilderOptions): Promise<unknown> {
+async function runTests (testCafe, opts: TestcafeBuilderOptions): Promise<number> {
     const proxy = opts.proxy;
     const proxyBypass = opts.proxyBypass;
 
