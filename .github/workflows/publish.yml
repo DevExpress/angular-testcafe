@@ -16,7 +16,7 @@ jobs:
 
       - run: npm ci --force
 
-      - run: cd demo-app && npm i --force && cd ..
+      - run: cd demo-app && npm ci --force && cd ..
 
       - run: npm run build
       
@@ -38,4 +38,4 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
     
       - shell: bash
-        run: npx publish-please || (git status && false)
+        run: npx --no-install publish-please || (git status && false)
