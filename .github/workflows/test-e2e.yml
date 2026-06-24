@@ -18,7 +18,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - run: npm ci --force
-      - run: cd demo-app && npm ci --force && cd ..
+      - run: cd demo-app && npm install --force && cd ..
       - run: npm run build --if-present
       - run: npm test
         env:
